@@ -69,18 +69,20 @@
           </div>
         </div>
       </a>
-      <div class="card mt-3">
-        <div class="card-body bg-dark-orange text-white rounded">
-          <div class="row">
-            <div class="col-2">
-              <i class="fa-solid fa-file-invoice fa-lg"></i>
-            </div>
-            <div class="col">
-              Laporan Penjualan
+      <a href="<?= base_url('owner/report'); ?>" class="text-decoration-none">
+        <div class="card mt-3">
+          <div class="card-body bg-dark-orange text-white rounded">
+            <div class="row">
+              <div class="col-2">
+                <i class="fa-solid fa-file-invoice fa-lg"></i>
+              </div>
+              <div class="col">
+                Laporan Penjualan
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
       <div class="card mt-3">
         <div class="card-body bg-dark-orange text-white rounded">
           <div class="row">
