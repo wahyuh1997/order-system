@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-4 my-auto px-0">
-        <a href="#" class="btn btn-sm btn-orange rounded">Tambah Produk</a>
+        <a href="<?= base_url('owner/product/add'); ?>" class="btn btn-sm btn-orange rounded">Tambah Produk</a>
       </div>
     </div>
   </div>

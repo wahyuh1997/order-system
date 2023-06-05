@@ -32,8 +32,21 @@ class Product extends MY_Controller
   public function add()
   {
     $data = [
-      'title'     => 'Data Produk',
+      'title'     => 'Tambah Data Produk',
     ];
-    $this->load_template_cust('owner/product/index', $data);
+    $this->load_template_cust('owner/product/add', $data);
+  }
+
+  public function edit()
+  {
+    $data = [
+      'title'     => 'Ubah Data Produk',
+    ];
+    $this->load_template_cust('owner/product/edit', $data);
+  }
+
+  public function delete($id)
+  {
+    /* ON PROGRESS */
   }
 }

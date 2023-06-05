@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
   <div class="container-fluid">
     <div class="fw-bold" role="search">
-      <a href="<?= base_url('owner//product'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <a href="<?= base_url('owner/product'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
       <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
   </div>
@@ -36,7 +36,7 @@
     <div class="row">
       <div class="col-6">
         <div class="d-grid gap-2">
-          <a href="" class="btn btn-orange">Ubah</a>
+          <a href="<?= base_url('owner/product/edit'); ?>" class="btn btn-orange">Ubah</a>
         </div>
       </div>
       <div class="col-6">
