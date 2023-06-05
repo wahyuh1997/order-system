@@ -1,13 +1,13 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <div class="fw-bold" role="navbar">
-        <a href="<?= base_url('owner/list_produk'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
-        <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <div class="fw-bold" role="navbar">
+      <a href="<?= base_url('owner/list_produk'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container my-2">
   <section class="mt-3">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-body ps-1" style="height: 100%;">

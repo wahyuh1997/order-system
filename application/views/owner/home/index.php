@@ -1,14 +1,14 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <h6 class="text-dark-orange"><?= $title; ?></h6>
-      <div class="d-flex" role="search">
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <h6 class="text-dark-orange"><?= $title; ?></h6>
+    <div class="d-flex" role="search">
 
-        <a href="<?= base_url(''); ?>" class="text-light-orange"><i class="fa-solid fa-circle-user fa-xl"></i></a>
-      </div>
+      <a href="<?= base_url(''); ?>" class="text-light-orange"><i class="fa-solid fa-circle-user fa-xl"></i></a>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container mt-2">
   <section class="text-center mt-5">
     <h1 class="text-dark-orange mb-4">Selamat Datang</h1>
     <p class="fw-bold text-dark-orange">Mimi Cakes & Cookies</p>

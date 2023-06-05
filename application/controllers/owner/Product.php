@@ -28,4 +28,12 @@ class Product extends MY_Controller
     ];
     $this->load_template_cust('owner/product/detail', $data);
   }
+
+  public function add()
+  {
+    $data = [
+      'title'     => 'Data Produk',
+    ];
+    $this->load_template_cust('owner/product/index', $data);
+  }
 }

@@ -1,12 +1,12 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <div class="fw-bold" role="search">
-        <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <div class="fw-bold" role="search">
+      <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container mt-2">
   <section class="mt-4">
     <div class="card-profile text-center border-0">
       <img src="<?= base_url('assets/img/user.png'); ?>" alt="" style="margin-top: 3em;">

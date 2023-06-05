@@ -1,13 +1,13 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <div class="fw-bold" role="search">
-        <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
-        <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <div class="fw-bold" role="search">
+      <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container my-2">
   <!-- Info Product -->
   <section class="mt-3">
     <h6 class="mb-0 text-dark-orange">Informasi Produk</h6>

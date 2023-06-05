@@ -1,13 +1,13 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <h6 class="text-dark-orange"><?= $title; ?></h6>
-      <div class="d-flex" role="navbar">
-        <a href="<?= base_url('owner'); ?>" class="text-light-orange"><i class="fa-solid fa-house fa-xl"></i></a>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <h6 class="text-dark-orange"><?= $title; ?></h6>
+    <div class="d-flex" role="navbar">
+      <a href="<?= base_url('owner'); ?>" class="text-light-orange"><i class="fa-solid fa-house fa-xl"></i></a>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container my-2">
   <nav>
     <div class="nav nav-underline nav-justified mt-2" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-new-tab" data-bs-toggle="tab" data-bs-target="#nav-new" type="button" role="tab" aria-controls="nav-new" aria-selected="true">Pesanan Baru</button>

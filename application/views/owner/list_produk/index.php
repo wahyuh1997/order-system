@@ -1,13 +1,13 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <h6 class="text-dark-orange"><?= $title; ?></h6>
-      <div class="d-flex" role="navbar">
-        <a href="<?= base_url('owner'); ?>" class="text-light-orange"><i class="fa-solid fa-house fa-xl"></i></a>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <h6 class="text-dark-orange"><?= $title; ?></h6>
+    <div class="d-flex" role="navbar">
+      <a href="<?= base_url('owner'); ?>" class="text-light-orange"><i class="fa-solid fa-house fa-xl"></i></a>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container mt-2">
   <section class="text-center mt-5">
     <div class="row">
       <div class="col-6 fw-bold text-dark-orange">
