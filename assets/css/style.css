@@ -1,0 +1,186 @@
+:root {
+	--darkOrange: #CC6D25;
+	--lightOrange: #E9924F;
+	--primaryText: #894009;
+}
+
+/* Global */
+body {
+	width: 100%;
+	margin: auto;
+	background-color: #F7F7F7;
+	font-family: 'Rubik', sans-serif;
+	overflow-x: hidden;
+}
+
+.text-dark-orange {
+  color: var(--primaryText);
+}
+
+.bg-dark-orange {
+  background-color: var(--darkOrange);
+}
+
+.text-light-orange {
+  color: var(--darkOrange);
+}
+
+.btn-outline-orange {
+    --bs-btn-color: var(--lightOrange);
+    --bs-btn-border-color: var(--lightOrange);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--lightOrange);
+    --bs-btn-hover-border-color: var(--lightOrange);
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--lightOrange);
+    --bs-btn-active-border-color: var(--lightOrange);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--lightOrange);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--lightOrange);
+    --bs-gradient: none;
+}
+
+.btn-outline-darkorange {
+    --bs-btn-color: var(--darkOrange);
+    --bs-btn-border-color: var(--darkOrange);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--darkOrange);
+    --bs-btn-hover-border-color: var(--darkOrange);
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--darkOrange);
+    --bs-btn-active-border-color: var(--darkOrange);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--darkOrange);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--darkOrange);
+    --bs-gradient: none;
+}
+
+.main-content  {
+  margin-bottom: 120px;
+}
+
+.icon-menu.active {
+  color: var(--lightOrange);
+}
+
+.icon-menu {
+  color: #808080;
+}
+
+.text-dark-orange {
+  color: var(--primaryText);
+}
+
+.btn-orange {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--darkOrange);
+  --bs-btn-border-color: var(--darkOrange);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--lightOrange);
+  --bs-btn-hover-border-color: var(--lightOrange);
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--lightOrange);
+  --bs-btn-active-border-color: var(--lightOrange);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #D9D9D9;
+  --bs-btn-disabled-border-color: #D9D9D9;
+}
+
+#formFile::before {
+  content: "Unggah";
+  position: absolute;
+  z-index: 2;
+  display: block;
+  background-color: #eee;
+  width: 80px;
+}
+
+.fa-solid.active {
+  color: var(--lightOrange);
+}
+
+.card-profile {
+  position: relative;
+  height: 28em;
+  border: 1px solid var(--lightOrange);
+  border-radius: 20px;
+}
+
+#togglePassword {
+  margin-left: -35px;
+  cursor: pointer;
+}
+/* End Of Global */
+
+
+/* Header Section */
+.sticky-top {
+  background-color: #F7F7F7;
+}
+
+.nav-underline .nav-link.active {
+  color: var(--darkOrange) !important;
+}
+
+.nav-underline .nav-link {
+  color: #ACAAAA;
+}
+
+.nav-link:hover {
+  color: var(--lightOrange) !important;
+}
+
+/* End Of Header Section */
+
+/* Main Section */
+.bottom-cart {
+  position: fixed;
+  right: 0;
+  bottom: 76px;
+  left: 0;
+  z-index: 1030;
+  margin: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* End Of Main Section */
+
+/* Footer Section */
+footer {
+  margin: auto;
+	border-top: 3px solid #E5E5E5;
+	height: 4.5rem;
+	background-color: white;
+}
+/* End Of Footer Section */
+
+/* Media Query When Android to Desktop */
+@media (min-width: 442px) {
+	body {
+		width: 441px;
+	}
+
+	body .navbar {
+		width: 441px;
+	}
+
+	body footer {
+		width: 441px;
+	}
+
+	body .bottom-cart {
+		width: 441px;
+	}
+}
+
