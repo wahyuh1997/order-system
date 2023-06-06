@@ -16,8 +16,8 @@ class Menu extends MY_Controller
   public function index()
   {
     $data = [
-      'title'     => 'Home',
-      'subtitle'  => 'SIPNOTING',
+      'title' => 'Home',
+      'js'    => 'menu/core',
     ];
     $this->load_template_cust('menu/index', $data, true);
   }

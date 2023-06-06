@@ -15,25 +15,31 @@
 
 <div class="container main-content">
   <section>
-    <div class="card mb-3" style="max-width: 540px;">
+
+    <div class="card mb-2" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-3">
           <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
         </div>
         <div class="col-9">
-          <div class="card-body px-1">
+          <div class="card-body py-2">
             <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
             <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
+            <div class="row">
+              <div class="col-7 my-auto">
+                <h5 class="card-text text-dark-orange">Rp. 8000</h5>
+              </div>
+              <div class="col-5 ps-0">
+                <button class="btn btn-outline-orange btn-round align-self-end me-2 add-item">Tambah</button>
+              </div>
+
             </div>
 
           </div>
         </div>
       </div>
     </div>
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-2" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-3">
           <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
@@ -49,111 +55,21 @@
               <div class="col-5 ps-0">
                 <div class="row">
                   <div class="col-3 px-0 text-center my-auto">
-                    <button class="btn btn-sm btn-outline-orange rounded">
+                    <button class="btn btn-sm btn-outline-orange rounded btn-minus">
                       <i class="fa-solid fa-minus fa-xs"></i>
                     </button>
                   </div>
                   <div class="col-6 px-1">
-                    <input type="number" min="0" class="form-control">
+                    <input type="number" min="0" class="form-control inp-qty" value="2">
                   </div>
                   <div class="col-3 px-0 text-center my-auto">
-                    <button class="btn btn-sm btn-outline-orange btn-round">
+                    <button class="btn btn-sm btn-outline-orange btn-round btn-add">
                       <i class="fa-solid fa-plus fa-xs"></i>
                     </button>
                   </div>
                 </div>
               </div>
 
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
-            <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
-            <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
-            <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
-            <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title text-dark-orange">Brownies Coklat</h5>
-            <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
-            <div class="d-flex justify-content-between">
-              <h5 class="card-text text-dark-orange align-self-end">Rp. 8000</h5>
-              <button class="btn btn-outline-orange btn-round align-self-end me-2">Tambah</button>
             </div>
 
           </div>

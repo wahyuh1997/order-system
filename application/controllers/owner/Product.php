@@ -32,7 +32,8 @@ class Product extends MY_Controller
   public function add()
   {
     $data = [
-      'title'     => 'Tambah Data Produk',
+      'title' => 'Tambah Data Produk',
+      'js'    => 'owner/product/core'
     ];
     $this->load_template_cust('owner/product/add', $data);
   }

@@ -32,7 +32,9 @@
     </div>
     <div class="mb-3">
       <label for="name" class="form-label text-light-orange">Gambar Produk</label>
-      <input class="form-control form-control-sm" id="formFile" type="file" accept="image/*">
+      <input class="form-control form-control-sm upd-image" id="formFile" type="file" accept="image/*">
+      <img class="mt-2 mr-2 pic" style="display: none;">
+      <a href="#" class="btn btn-sm btn-danger del-image d-grid gap-2 mt-2 d-none">Hapus Gambar</a>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label text-light-orange">Ketersediaan</label>

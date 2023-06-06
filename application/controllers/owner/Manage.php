@@ -16,7 +16,8 @@ class Manage extends MY_Controller
   public function index()
   {
     $data = [
-      'title'     => 'Pre-Order Management',
+      'title' => 'Pre-Order Management',
+      'js'    => 'owner/manage/core'
     ];
     $this->load_template_cust('owner/manage/index', $data);
   }
