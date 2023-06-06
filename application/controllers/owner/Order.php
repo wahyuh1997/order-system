@@ -20,4 +20,12 @@ class Order extends MY_Controller
     ];
     $this->load_template_cust('owner/order/index', $data);
   }
+
+  public function detail()
+  {
+    $data = [
+      'title'     => 'Pesanan 0001',
+    ];
+    $this->load_template_cust('owner/order/detail', $data);
+  }
 }

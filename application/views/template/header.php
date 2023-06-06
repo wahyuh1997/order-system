@@ -15,6 +15,7 @@
   <link href="<?= base_url('assets/fontawesome-free-6.4.0-web/'); ?>css/solid.css" rel="stylesheet">
   <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/daterangepicker.css'); ?>" rel="stylesheet">
+  <link href="<?= base_url('node_modules/bootstrap5-toggle/css/bootstrap5-toggle.css'); ?>" rel="stylesheet">
 </head>
 
 <body>

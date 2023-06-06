@@ -18,7 +18,7 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab" tabindex="0" style="position: relative;">
 
-      <a href="<?= base_url('order/confirm'); ?>" class="text-decoration-none">
+      <a href="<?= base_url('owner/order/detail'); ?>" class="text-decoration-none">
         <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
           <div class="row g-0 text-light-orange">
             <div class="col-3 text-center my-auto">

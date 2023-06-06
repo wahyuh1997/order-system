@@ -2,8 +2,7 @@
   <div class="container-fluid">
     <h6 class="text-dark-orange"><?= $title; ?></h6>
     <div class="d-flex" role="search">
-
-      <a href="<?= base_url(''); ?>" class="text-light-orange"><i class="fa-solid fa-circle-user fa-xl"></i></a>
+      <a href="<?= base_url('owner/profile'); ?>" class="text-light-orange"><i class="fa-solid fa-circle-user fa-xl"></i></a>
     </div>
   </div>
 </nav>
@@ -83,18 +82,20 @@
           </div>
         </div>
       </a>
-      <div class="card mt-3">
-        <div class="card-body bg-dark-orange text-white rounded">
-          <div class="row">
-            <div class="col-2">
-              <i class="fa-solid fa-file-pen fa-lg"></i>
-            </div>
-            <div class="col">
-              Pre-Order Management
+      <a href="<?= base_url('owner/manage'); ?>" class="text-decoration-none">
+        <div class="card mt-3">
+          <div class="card-body bg-dark-orange text-white rounded">
+            <div class="row">
+              <div class="col-2">
+                <i class="fa-solid fa-file-pen fa-lg"></i>
+              </div>
+              <div class="col">
+                Pre-Order Management
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 </div>
