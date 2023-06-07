@@ -26,14 +26,13 @@ class Auth_model extends My_Model
 			}
 			else
 			{
-				return return_success('password salah', []);
+				return return_failed('password salah', []);
 			}
 		}
 		else
 		{
-			return return_success('user tidak ditemukan', []);
+			return return_failed('user tidak ditemukan', []);
 		}
-
   }
 
   /*
@@ -47,7 +46,7 @@ class Auth_model extends My_Model
 
   function register($data)
   {
-    if (strlen($data['user_name']) < 1 && strlen($data['nama']) < 1 && strlen($data['password']) < 1) {
+    if (strlen($data['user_name']) < 1 || strlen($data['nama']) < 1 || strlen($data['password']) < 1) {
         return $this->return_failed('username, nama, dan password silahkan diisi!',[]);
     }
 
@@ -55,7 +54,7 @@ class Auth_model extends My_Model
         return $this->return_failed('username sudah digunakan!',[]);
     }
 
-    $simpan = $this->db->insert('users', $save);
+    $simpan = $this->db->insert('user', $data);
 
     return $this->return_success('Data berhasil disimpan!', $simpan);
   }
