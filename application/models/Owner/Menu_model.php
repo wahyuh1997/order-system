@@ -46,7 +46,7 @@ class Menu_model extends My_Model
     //     'price',
     //     'is_available' => 
     // ]
-    function insert_menu()
+    function insert_menu($data)
     {
         if (strlen($data['product_name']) < 1 || strlen($data['description']) < 1 || strlen($data['price']) < 1) {
             return $this->return_failed('Nama menu, deskripsi, dan harga silahkan diisi!',[]);
