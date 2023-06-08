@@ -1,6 +1,6 @@
 <?php
 
-class My_Model extends CI_Model
+class MY_Model extends CI_Model
 {
   function __construct()
   {
@@ -15,7 +15,7 @@ class My_Model extends CI_Model
     return $return;
   }
 
-  function return_failed($message, $data)
+  public function return_failed($message, $data)
   {
     $return = [
       'message' => $message, 'data' => $data, 'status' => false
