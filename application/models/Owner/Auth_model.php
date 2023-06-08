@@ -20,7 +20,7 @@ class Auth_model extends My_Model
     if($data_user !== NULL)
 		{
 			//cek password
-			if(password_verify($password, $data_user['password']))
+			if(password_verify($data['password'], $data_user['password']))
 			{
 				return return_success('login berhasil!', $data_user);
 			}
