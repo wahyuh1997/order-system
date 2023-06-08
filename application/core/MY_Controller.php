@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller
   public function load_template($view = null, $data_view, $footer_menu = false)
   {
     if ($this->uri->segment(2) != 'auth') {
-      if (!isset($_SESSION['os_admin'])) {
+      if (!isset($_SESSION['os_owner'])) {
         redirect('owner/auth');
       }
     }

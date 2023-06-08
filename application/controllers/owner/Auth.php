@@ -29,11 +29,11 @@ class Auth extends MY_Controller
       $res = $this->auth->login($post);
 
       if ($res['status'] == true) {
-        $_SESSION['os_admin'] = [
-          'username'    => $res['data']['user_name'],
-          'nama'        => $res['data']['nama'],
-          'email'       => $res['data']['email'],
-          'no_telepon'  => $res['data']['no_telepon'],
+        $_SESSION['os_owner'] = [
+          'username'  => $res['data']['user_name'],
+          'nama'      => $res['data']['nama'],
+          'email'     => $res['data']['email'],
+          'phone'     => $res['data']['no_telepon'],
         ];
       }
 
