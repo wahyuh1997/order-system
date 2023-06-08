@@ -50,12 +50,75 @@ class Menu_model extends MY_Model
         return $this->return_success('', $menu);
     }
 
+    // $data = [
+    //  'id',
+    //     'product_name',
+    //     'description',
+    //     'price',
+    //     'image' =>, 
+    //     'is_available' => 
+    // ]
+    
+    function edit_menu($data)
+    {
+        $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
+
+        if (count($menu) < 1) {
+            return $this->return_failed('Menu is not available!', []);
+        }
+        
+        if (strlen($data['product_name'] < 1)) {
+            return $this->return_failed('Menu Name must required!', []);
+        }
+        
+        $this->db->set('product_name', $data['product_name']);
+        $this->db->set('description', $data['description']);
+        $this->db->set('price', $data['price']);
+        $this->db->set('is_available', $data['is_available']);
+        $this->db->set('image', $data['image']);
+        $this->db->update('menu', ['id' => $data['id']]);
+
+        return $this->return_success('Menu is Updated', $menu);
+    }
+
+    function delete_menu($id_menu)
+    {
+        $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
+
+        if (count($menu) < 1) {
+            return $this->return_failed('Menu is not available!', []);
+        }
+
+        $this->db->delete('menu',['id'=>$id_menu]);
+
+        return $this->return_success('Menu is deleted', $menu);
+    }
+
+    // $data = ['id' => , 'is_activate'];
+    function activate_menu($id_menu)
+    {
+        $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
+        
+        if (count($menu) < 1) {
+            return $this->return_failed('Menu is not available!', []);
+        }
+
+        $this->db->update('menu',['is_activate'=>$data['is_activate'], ['id'=>$data['id']]]);
+
+        if ($data['is_activate'] == 1) {
+            return $this->return_success('Menu is activate', $menu);
+        } else {
+            return $this->return_success('Menu is not activate', $menu);
+        }
+    }
+
 
     // $data = [
     //     'product_name',
     //     'description',
     //     'price',
-    //     'is_available' => 
+    //     'is_available' => ,
+    //     'image'
     // ]
     function insert_menu($data)
     {
