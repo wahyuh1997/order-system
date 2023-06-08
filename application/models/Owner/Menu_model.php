@@ -24,6 +24,18 @@ class Menu_model extends My_Model
 
         return return_success('',$return);
     }
+    
+    function get_menu_by_search($search)
+    {
+        $menu = $this->db->get('menu')->like('product_name',$search)->result_array();
+
+        $return = [
+            'menu' => $menu,
+            $this->pre_order()
+        ];
+
+        return return_success('',$return);
+    }
 
     // untuk menu detail, edit menu
 
