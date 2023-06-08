@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu_model extends My_Model
+class Menu_model extends MY_Model
 {
     function pre_order()
     {
-        $menu = $this->db->get_where('menu',['is_available' => 0]);
+        $menu = $this->db->get_where('menu', ['is_available' => 0]);
 
         $is_preorder = $menu->num_rows() > 0 ? 1 : 0;
 
@@ -22,7 +22,7 @@ class Menu_model extends My_Model
             $this->pre_order()
         ];
 
-        return return_success('',$return);
+        return $this->return_success('', $return);
     }
     
     function get_menu_by_search($search)
@@ -41,14 +41,13 @@ class Menu_model extends My_Model
 
     function get_menu($id_menu)
     {
-        $menu = $this->db->get_where('menu',['id' => $id_menu])->row_array();
+        $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
 
-        if(count($menu) < 1)
-        {
-            return return_failed('Menu is not available!', []);
+        if (count($menu) < 1) {
+            return $this->return_failed('Menu is not available!', []);
         }
 
-        return return_success('',$menu);
+        return $this->return_success('', $menu);
     }
 
 
@@ -61,11 +60,11 @@ class Menu_model extends My_Model
     function insert_menu($data)
     {
         if (strlen($data['product_name']) < 1 || strlen($data['description']) < 1 || strlen($data['price']) < 1) {
-            return $this->return_failed('Nama menu, deskripsi, dan harga silahkan diisi!',[]);
+            return $this->return_failed('Nama menu, deskripsi, dan harga silahkan diisi!', []);
         }
 
-        $simpan = $this->db->insert('menu', $data);
+        $this->db->insert('menu', $data);
 
-    return $this->return_success('Menu berhasil disimpan!', $data);
+        return $this->return_success('Menu berhasil disimpan!', $data);
     }
 }

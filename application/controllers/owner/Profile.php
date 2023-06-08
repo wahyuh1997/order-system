@@ -18,7 +18,7 @@ class Profile extends MY_Controller
     $data = [
       'title' => 'Data Diri',
     ];
-    $this->load_template_cust('owner/profile/index', $data);
+    $this->load_template('owner/profile/index', $data);
   }
 
   public function edit()
@@ -27,6 +27,6 @@ class Profile extends MY_Controller
       'title' => 'Ubah Data Diri',
       'js'    => 'owner/profile/core'
     ];
-    $this->load_template_cust('owner/profile/edit', $data);
+    $this->load_template('owner/profile/edit', $data);
   }
 }

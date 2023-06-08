@@ -25,20 +25,22 @@
 
 <div class="container" style="margin-top: 107px;">
   <section>
-    <a href="<?= base_url('owner/product/detail'); ?>" class="text-decoration-none">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-3">
-            <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
-          </div>
-          <div class="col-9">
-            <div class="card-body p-1">
-              <h6 class="card-title text-dark-orange">Brownies Coklat</h6>
-              <small class="card-text text-light-orange">Brownies coklat dengan <br> tekstur yang lembut</small>
+    <?php foreach ($item as $item) : ?>
+      <a href="<?= base_url('owner/product/detail/' . $item['id']); ?>" class="text-decoration-none">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0" style="height: 100%;">
+            <div class="col-3">
+              <img src="<?= base_url('assets/img/product/') . $item['image']; ?>." class="img-fluid" style="width: 100%; max-height: 88px;" alt="Cake 1">
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <h6 class="card-title text-dark-orange"><?= $item['product_name']; ?></h6>
+                <small class="card-text text-light-orange"><?= $item['description']; ?></small>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    <?php endforeach; ?>
   </section>
 </div>

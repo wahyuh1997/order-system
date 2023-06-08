@@ -3,12 +3,9 @@
 <script src="<?= base_url('assets/js/jquery.mask.js'); ?>"></script>
 <script src="<?= base_url('assets/js/moment.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/daterangepicker.js'); ?>"></script>
+<script src="<?= base_url('assets/js/sweetalert2.all.js'); ?>"></script>
 <script src="<?= base_url('node_modules/bootstrap5-toggle/js/bootstrap5-toggle.jquery.js'); ?>"></script>
-<script>
-  $('.phone').mask('(0000) 0000-0000');
-
-  $('.order-toggle').bootstrapToggle();
-</script>
+<script src="<?= base_url('assets/js/script.js'); ?>"></script>
 </body>
 
 </html>

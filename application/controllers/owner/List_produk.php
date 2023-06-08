@@ -18,7 +18,7 @@ class List_produk extends MY_Controller
     $data = [
       'title'     => 'List Produk Pesanan',
     ];
-    $this->load_template_cust('owner/list_produk/index', $data);
+    $this->load_template('owner/list_produk/index', $data);
   }
 
   public function detail()
@@ -26,6 +26,6 @@ class List_produk extends MY_Controller
     $data = [
       'title'     => 'Donat Coklat', // Get From Data Item Name
     ];
-    $this->load_template_cust('owner/list_produk/detail', $data);
+    $this->load_template('owner/list_produk/detail', $data);
   }
 }

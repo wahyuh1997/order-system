@@ -8,6 +8,7 @@ class Manage extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('owner/Menu_model', 'menu');
   }
 
   /**
@@ -15,10 +16,13 @@ class Manage extends MY_Controller
    */
   public function index()
   {
+    $res = $this->menu->get_all_menu();
+
     $data = [
       'title' => 'Pre-Order Management',
-      'js'    => 'owner/manage/core'
+      'js'    => 'owner/manage/core',
+      'item'  => $res['data']['menu']
     ];
-    $this->load_template_cust('owner/manage/index', $data);
+    $this->load_template('owner/manage/index', $data);
   }
 }

@@ -30,72 +30,30 @@
 <div class="container" style="margin-top: 140px;">
   <section class="mt-3">
 
-    <div class="card active mb-2" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%; filter: grayscale(100%);" alt="Cake 1">
-        </div>
-        <div class="col-9 align-items-center">
-          <div class="card-body ps-1" style="height: 100%;">
-            <div class="row mt-2">
-              <div class="col-10">
-                <h6 class="card-title mb-0" style="color: #ACAAAA;">Cookies Topping Choco chip</h6>
-                <!-- <small>Donat coklat dengan tekstur yang lembut</small> -->
-              </div>
-              <div class="col-2 text-end">
-                <div class="form-check fs-3">
-                  <input class="form-check-input" type="checkbox" value="" checked>
+    <?php foreach ($item as $item) : ?>
+      <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-3">
+            <img src="<?= base_url('assets/img/product/' . $item['image']); ?>." class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">
+          </div>
+          <div class="col-9 align-items-center">
+            <div class="card-body ps-1 py-1" style="height: 100%;">
+              <div class="row mt-2">
+                <div class="col-10">
+                  <h6 class="card-title mb-0" style="color: #ACAAAA;"><?= $item['product_name']; ?></h6>
+                  <small><?= $item['description']; ?></small>
+                </div>
+                <div class="col-2 text-end">
+                  <div class="form-check fs-3">
+                    <input class="form-check-input" type="checkbox" value="" <?= $item['is_available'] == 1 ? 'checked' : ''; ?>>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card active mb-2" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%; filter: grayscale(100%);" alt="Cake 1">
-        </div>
-        <div class="col-9 align-items-center">
-          <div class="card-body ps-1" style="height: 100%;">
-            <div class="row mt-2">
-              <div class="col-10">
-                <h6 class="card-title mb-0" style="color: #ACAAAA;">Cookies Topping Choco chip</h6>
-                <!-- <small>Donat coklat dengan tekstur yang lembut</small> -->
-              </div>
-              <div class="col-2 text-end">
-                <div class="form-check fs-3">
-                  <input class="form-check-input" type="checkbox" value="" checked>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card active mb-2" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-3">
-          <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%; filter: grayscale(100%);" alt="Cake 1">
-        </div>
-        <div class="col-9 align-items-center">
-          <div class="card-body ps-1" style="height: 100%;">
-            <div class="row mt-2">
-              <div class="col-10">
-                <h6 class="card-title mb-0" style="color: #ACAAAA;">Cookies Topping Choco chip</h6>
-                <!-- <small>Donat coklat dengan tekstur yang lembut</small> -->
-              </div>
-              <div class="col-2 text-end">
-                <div class="form-check fs-3">
-                  <input class="form-check-input" type="checkbox" value="" checked>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
   </section>
 
 </div>

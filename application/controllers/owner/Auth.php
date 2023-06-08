@@ -8,6 +8,7 @@ class Auth extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('owner/Auth_model', 'auth');
   }
 
   /**
@@ -15,10 +16,34 @@ class Auth extends MY_Controller
    */
   public function index()
   {
-    $data = [
-      'title' => 'Masuk',
-      'js'    => 'owner/auth/core'
-    ];
-    $this->load_template_cust('owner/auth/index', $data);
+    $post = $this->input->post(null, true);
+
+    if (count($post) == 0) {
+      # code...
+      $data = [
+        'title' => 'Masuk',
+        'js'    => 'owner/auth/core'
+      ];
+      $this->load_template('owner/auth/index', $data);
+    } else {
+      $res = $this->auth->login($post);
+
+      if ($res['status'] == true) {
+        $_SESSION['os_owner'] = [
+          'username'  => $res['data']['user_name'],
+          'nama'      => $res['data']['nama'],
+          'email'     => $res['data']['email'],
+          'phone'     => $res['data']['no_telepon'],
+        ];
+      }
+
+      echo json_encode($res);
+    }
+  }
+
+  public function logout()
+  {
+    session_destroy();
+    redirect('owner/auth');
   }
 }
