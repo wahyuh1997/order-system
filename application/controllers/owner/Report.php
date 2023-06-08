@@ -19,6 +19,6 @@ class Report extends MY_Controller
       'title'     => 'Laporan Penjualan',
       'js'        => 'owner/report/core'
     ];
-    $this->load_template_cust('owner/report/index', $data);
+    $this->load_template('owner/report/index', $data);
   }
 }

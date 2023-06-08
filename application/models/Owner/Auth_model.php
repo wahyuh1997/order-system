@@ -19,7 +19,7 @@ class Auth_model extends MY_Model
 
     if ($data_user !== NULL) {
       //cek password
-      if (password_verify($data['password'], $data_user['password'])) {
+      if ($data['password'] == $data_user['password']) {
         return $this->return_success('login berhasil!', $data_user);
       } else {
         return $this->return_failed('password salah', []);

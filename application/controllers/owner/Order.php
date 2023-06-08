@@ -18,7 +18,7 @@ class Order extends MY_Controller
     $data = [
       'title'     => 'Pesanan',
     ];
-    $this->load_template_cust('owner/order/index', $data);
+    $this->load_template('owner/order/index', $data);
   }
 
   public function detail()
@@ -26,6 +26,6 @@ class Order extends MY_Controller
     $data = [
       'title'     => 'Pesanan 0001',
     ];
-    $this->load_template_cust('owner/order/detail', $data);
+    $this->load_template('owner/order/detail', $data);
   }
 }

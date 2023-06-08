@@ -18,6 +18,6 @@ class Home extends MY_Controller
     $data = [
       'title'     => 'Halaman Utama',
     ];
-    $this->load_template_cust('owner/home/index', $data);
+    $this->load_template('owner/home/index', $data);
   }
 }

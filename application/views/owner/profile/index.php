@@ -23,7 +23,7 @@
 
       <div class="d-grid gap-2 mt-4 px-3">
         <a href="<?= base_url('owner/profile/edit'); ?>" class="btn btn-orange mt-3">Ubah</a>
-        <button class="btn btn-orange">Keluar</button>
+        <a href="<?= base_url('owner/auth/logout'); ?>" class="btn btn-orange">Keluar</a>
       </div>
     </div>
   </section>

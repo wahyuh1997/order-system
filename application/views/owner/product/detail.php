@@ -14,20 +14,20 @@
 
   <div class="card">
     <div class="card-body text-light-orange">
-      <h6 class="mb-0 text-light-orange fw-bold">Donat Coklat</h6>
-      <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
+      <h6 class="mb-0 text-light-orange fw-bold"><?= $data['product_name']; ?></h6>
+      <img src="<?= base_url('assets/img/product/' . $data['image']); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
 
       <div class="mb-3">
         <p class="mb-0 text-light-orange fw-bold">Nama Produk</p>
-        <small>Donat Coklat</small>
+        <small><?= $data['product_name']; ?></small>
       </div>
       <div class="mb-3">
         <p class="mb-0 text-light-orange fw-bold">Harga Produk</p>
-        <small>Rp. 8.000</small>
+        <small>Rp. <?= number_format($data['price'], 0, ',', '.'); ?></small>
       </div>
       <div class="mb-3">
         <p class="mb-0 text-light-orange fw-bold">Deskripsi</p>
-        <small>Donat Coklat dengan tekstur yang lembut</small>
+        <small><?= $data['description']; ?></small>
       </div>
     </div>
   </div>

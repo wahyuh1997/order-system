@@ -19,6 +19,6 @@ class Manage extends MY_Controller
       'title' => 'Pre-Order Management',
       'js'    => 'owner/manage/core'
     ];
-    $this->load_template_cust('owner/manage/index', $data);
+    $this->load_template('owner/manage/index', $data);
   }
 }
