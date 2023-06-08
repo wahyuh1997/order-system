@@ -95,9 +95,9 @@ class Menu_model extends MY_Model
     }
 
     // $data = ['id' => , 'is_activate'];
-    function activate_menu($id_menu)
+    function activate_menu($data)
     {
-        $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
+        $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
         
         if (count($menu) < 1) {
             return $this->return_failed('Menu is not available!', []);
