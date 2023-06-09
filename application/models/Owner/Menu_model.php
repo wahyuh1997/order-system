@@ -34,7 +34,7 @@ class Menu_model extends MY_Model
             $this->pre_order()
         ];
 
-        return return_success('',$return);
+        return $this->return_success('',$return);
     }
 
     // untuk menu detail, edit menu
