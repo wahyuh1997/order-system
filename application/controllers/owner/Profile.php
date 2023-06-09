@@ -8,6 +8,7 @@ class Profile extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('owner/Auth_model', 'auth');
   }
 
   /**
@@ -23,10 +24,33 @@ class Profile extends MY_Controller
 
   public function edit()
   {
-    $data = [
-      'title' => 'Ubah Data Diri',
-      'js'    => 'owner/profile/core'
-    ];
-    $this->load_template('owner/profile/edit', $data);
+    $post = $this->input->post(null, true);
+
+    if (count($post) == 0) {
+      # View
+      $data = [
+        'title' => 'Ubah Data Diri',
+        'js'    => 'owner/profile/core'
+      ];
+      $this->load_template('owner/profile/edit', $data);
+    } else {
+
+      $post['id'] = $_SESSION['os_owner']['id'];
+      $str = $post['no_telepon'];
+      preg_match_all('!\d+!', $str, $matches);
+      $post['no_telepon'] = $matches[0][0] . $matches[0][1] . $matches[0][2];
+
+      $res = $this->auth->edit_user($post);
+
+      if ($res['status'] == true) {
+        $_SESSION['os_owner'] = [
+          'username'  => $post['user_name'],
+          'nama'      => $post['nama'],
+          'phone'     => $post['no_telepon']
+        ];
+      }
+
+      echo json_encode($res);
+    }
   }
 }

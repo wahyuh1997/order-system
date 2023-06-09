@@ -14,11 +14,11 @@
 
       <div class="mb-3">
         <label class="form-label fw-bold text-dark-orange mb-1">Nama</label>
-        <p class="mb-0 text-dark-orange"><?= $_SESSION['os_admin']['nama']; ?></p>
+        <p class="mb-0 text-dark-orange"><?= $_SESSION['os_owner']['nama']; ?></p>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold text-dark-orange mb-1">No. Telepon</label>
-        <p class="mb-0 text-dark-orange"><?= $_SESSION['os_admin']['phone']; ?></p>
+        <p class="mb-0 text-dark-orange"><?= $_SESSION['os_owner']['phone']; ?></p>
       </div>
 
       <div class="d-grid gap-2 mt-4 px-3">

@@ -19,7 +19,7 @@ class Auth_model extends MY_Model
 
     if ($data_user !== NULL) {
       //cek password
-      if ($data['password'] == $data_user['password']) {
+      if (password_verify($data['password'], $data_user['password'])) {
         return $this->return_success('login berhasil!', $data_user);
       } else {
         return $this->return_failed('password salah', []);
@@ -52,7 +52,7 @@ class Auth_model extends MY_Model
 
     return $this->return_success('Data berhasil disimpan!', $simpan);
   }
-  
+
   /*
     $data = [
     'id'=>
@@ -67,31 +67,40 @@ class Auth_model extends MY_Model
     $user = $this->db->get_where('user', ['id' => $data['id']])->row_array();
 
     if (count($user) < 1) {
-        return $this->return_failed('User is not available!', []);
+      return $this->return_failed('User is not available!', []);
     }
 
     if (strlen($data['user_name']) < 1) {
       return $this->return_failed('username is required!', []);
     }
-    
+
     if (strlen($data['nama']) < 1) {
       return $this->return_failed('nama is required!', []);
     }
-    if ($this->db->get_where('user', ['user_name' => $data['user_name']])->row_array()) {
-      return $this->return_failed('username sudah digunakan!', []);
+
+    // if ($this->db->get_where('user', ['user_name' => $data['user_name']])->row_array()) {
+    //   return $this->return_failed('username sudah digunakan!', []);
+    // }
+
+    /* 
+    Password only change if they do fill in.
+     */
+    if (strlen($data['password']) > 1) {
+      $this->db->set('password', password_hash($data['password'], PASSWORD_DEFAULT));
     }
 
-    if (strlen($data['password']) < 1) {
-      $this->db->set('password', $data['password']);
-    }
-    if (strlen($data['photo']) < 1) {
-      $this->db->set('photo', $data['photo']);
-    }
+    /* 
+      Owner cannot change the picture. 
+    */
+    // if (strlen($data['photo']) < 1) {
+    //   $this->db->set('photo', $data['photo']);
+    // }
 
     $this->db->set('user_name', $data['user_name']);
     $this->db->set('nama', $data['nama']);
+    $this->db->set('no_telepon', $data['no_telepon']); // For WhatsApp Call Setting. 
 
-    $simpan = $this->db->update('user', ['id'=>$data['id']]);
+    $simpan = $this->db->update('user', ['id' => $data['id']]);
 
     return $this->return_success('Data berhasil diubah!', $simpan);
   }

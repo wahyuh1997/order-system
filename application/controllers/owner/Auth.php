@@ -30,6 +30,7 @@ class Auth extends MY_Controller
 
       if ($res['status'] == true) {
         $_SESSION['os_owner'] = [
+          'id'        => $res['data']['id'],
           'username'  => $res['data']['user_name'],
           'nama'      => $res['data']['nama'],
           'email'     => $res['data']['email'],

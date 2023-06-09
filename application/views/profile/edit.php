@@ -11,7 +11,7 @@
 
       <div class="mb-3 text-start px-3">
         <label class="form-label fw-bold text-dark-orange">Nama</label>
-        <input type="text" class="form-control" value="Najmah Frithadila">
+        <input type="text" class="form-control" value="">
       </div>
       <div class="mb-3 text-start px-3">
         <label class="form-label fw-bold text-dark-orange">No. Telepon</label>
