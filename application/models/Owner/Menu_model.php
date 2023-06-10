@@ -5,7 +5,7 @@ class Menu_model extends MY_Model
 {
     function pre_order()
     {
-        $menu = $this->db->get_where('menu', ['is_available' => 0]);
+        $menu = $this->db->get_where('menu', ['is_available' => 1]);
 
         $is_preorder = $menu->num_rows() > 0 ? 1 : 0;
 
@@ -106,7 +106,7 @@ class Menu_model extends MY_Model
             return $this->return_failed('Menu is not available!', []);
         }
 
-        $this->db->update('menu',['is_activate'=>$data['is_activate'], ['id'=>$data['id']]]);
+        $this->db->update('menu',['is_activate'=>$data['is_activate']], ['id'=>$data['id']]);
 
         if ($data['is_activate'] == 1) {
             return $this->return_success('Menu is activate', $menu);
