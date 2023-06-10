@@ -78,6 +78,8 @@ class Menu_model extends MY_Model
         $this->db->set('image', $data['image']);
         $this->db->update('menu', ['id' => $data['id']]);
 
+        $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
+
         return $this->return_success('Menu is Updated', $menu);
     }
 
