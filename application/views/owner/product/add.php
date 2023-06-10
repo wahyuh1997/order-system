@@ -45,7 +45,7 @@
             <label class="form-check-label text-dark-orange" for="inlineRadio1">Tersedia</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="is_available" id="inlineRadio2" value="2">
+            <input class="form-check-input" type="radio" name="is_available" id="inlineRadio2" value="0">
             <label class="form-check-label text-dark-orange" for="inlineRadio2">Kosong</label>
           </div>
         </div>
