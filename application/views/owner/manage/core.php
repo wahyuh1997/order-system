@@ -40,7 +40,21 @@
       $('.order-toggle').bootstrapToggle('off')
     }
 
-
+    let id = $(this).data('id')
+    let is_avail = $(this).val() == 1 ? 0 : 1;
+    $.ajax({
+      url: 'manage/is_avail',
+      method: 'POST',
+      async: true,
+      dataType: 'JSON',
+      data: {
+        id: id,
+        is_activate: is_avail
+      },
+      success: function(data) {
+        console.log(data);
+      }
+    })
 
   });
 </script>
