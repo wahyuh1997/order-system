@@ -26,7 +26,8 @@ class Menu_model extends MY_Model
 
     function get_menu_by_search($search)
     {
-        $menu = $this->db->get('menu')->like('product_name', $search)->result_array();
+        $this->db->like('product_name', $search);
+        $menu = $this->db->get('menu')->result_array();
 
         $return = [
             'menu' => $menu,

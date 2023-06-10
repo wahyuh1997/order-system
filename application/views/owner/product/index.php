@@ -13,7 +13,7 @@
       <div class="col-8">
         <div class="input-group rounded-2" style="box-shadow: 1px 2px #181818;">
           <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" class="form-control" placeholder="Cari Produk">
+          <input type="text" id="search" class="form-control" placeholder="Cari Produk">
         </div>
       </div>
       <div class="col-4 my-auto px-0">

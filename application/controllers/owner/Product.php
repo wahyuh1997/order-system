@@ -21,6 +21,7 @@ class Product extends MY_Controller
 
     $data = [
       'title'     => 'Data Produk',
+      'js'        => 'owner/product/js/core_index',
       'item'      => $res['data']['menu']
     ];
 
@@ -51,7 +52,7 @@ class Product extends MY_Controller
       # View
       $data = [
         'title' => 'Tambah Data Produk',
-        'js'    => 'owner/product/core'
+        'js'    => 'owner/product/js/core'
       ];
       $this->load_template('owner/product/add', $data);
     } else {
@@ -89,7 +90,7 @@ class Product extends MY_Controller
         # code...
         $data = [
           'title'     => 'Ubah Data Produk',
-          'js'        => 'owner/product/core',
+          'js'        => 'owner/product/js/core',
           'data'      => $res['data']
         ];
 
@@ -131,7 +132,25 @@ class Product extends MY_Controller
 
   public function delete($id)
   {
-    /* ON PROGRESS */
     echo json_encode($this->menu->delete_menu($id));
+  }
+
+  public function search($product_name = null)
+  {
+    if ($product_name == null) {
+      $res = $this->menu->get_all_menu();
+    } else {
+      $res = $this->menu->get_menu_by_search($product_name);
+    }
+
+
+    $data_view['item'] = $res['data']['menu'];
+
+    $data = [
+      'status' => $res['status'],
+      'html'   => $this->load->view('owner/product/view_product', $data_view, true)
+    ];
+
+    echo json_encode($data);
   }
 }
