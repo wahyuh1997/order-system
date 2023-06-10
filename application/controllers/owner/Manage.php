@@ -21,8 +21,14 @@ class Manage extends MY_Controller
     $data = [
       'title' => 'Pre-Order Management',
       'js'    => 'owner/manage/core',
-      'item'  => $res['data']['menu']
+      'item'  => $res['data']['menu'],
+      'is_preorder' => $res['data'][0]['is_preorder']
     ];
     $this->load_template('owner/manage/index', $data);
+  }
+
+  public function is_avail()
+  {
+    echo json_encode($this->menu->activate_menu($_POST));
   }
 }
