@@ -29,6 +29,7 @@ class Auth_model extends MY_Model
     */
     function register($data)
     {
+        $data['is_admin'] = 0;
         $this->db->insert('user', $data);
         $user = $this->db->get_where('user', ['email' => $data['email']]);
         return $this->return_success('User has been registered!', $user);
