@@ -23,8 +23,72 @@ class Order_model extends MY_Model
         return $this->return_success('', $menu);
     }
 
-    function insert_order($data)
+    
+    function insert_order($menu_id)
     {
         
+    }
+
+    // $data = [
+    //     'customer_id' => 
+    //     'menu_id' => 
+    //      'item'  => 
+    // ];
+    function add_cart($data)
+    {
+        if (strlen($data['menu_id']) < 1) {
+            return $this->return_failed('Please select a menu!', []);
+        }
+
+        $this->db->insert('cart', $data);
+
+        $cart = $this->get_cart($data['customer_id'])['data'];
+
+        return $this->return_success('Insert to cart',$cart);
+
+    }
+
+    // $data = [
+    //     'customer_id' => 
+    //     'menu_id' => 
+    //      'item'  => 
+    // ];
+    
+    function update_cart($data)
+    {
+        if (strlen($data['menu_id']) < 1) {
+            return $this->return_failed('Please select a menu!', []);
+        }
+
+        $this->db->set('item', $data['item']);
+        $this->db->where(['customer_id'=> $data['customer_id'],'menu_id' => $data['menu_id']]);
+        $this->db->update('cart');
+
+        $cart = $this->get_cart($data['customer_id'])['data'];
+
+        return $this->return_success('cart is updated',$cart);
+    }
+
+    // $data = [
+    //     'customer_id' => 
+    //     'menu_id' =>
+    // ];
+    function delete_cart($data)
+    {
+        $this->db->delete('cart',$data);
+
+        $cart = $this->get_cart($data['customer_id'])['data'];
+
+        return $this->return_success('item is deleted!',$cart);
+    }
+
+    function get_cart($customer_id)
+    {
+        $this->db->select('a.*, b.product_name, b.description, b.price, b.image');
+        $this->db->from('cart a');
+        $this->db->join('menu b', 'a.menu_id = b.id');
+        $cart = $this->db->get()->result_array();
+
+        return $this->return_success('', $cart);
     }
 }
