@@ -109,7 +109,8 @@ class Auth_model extends MY_Model
     $this->db->set('nama', $data['nama']);
     $this->db->set('no_telepon', $data['no_telepon']); // For WhatsApp Call Setting. 
 
-    $simpan = $this->db->update('user', ['id' => $data['id']]);
+    $this->db->where(['id' => $data['id']]);
+    $simpan = $this->db->update('user');
 
     return $this->return_success('Data berhasil diubah!', $simpan);
   }

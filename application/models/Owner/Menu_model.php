@@ -76,7 +76,8 @@ class Menu_model extends MY_Model
         $this->db->set('price', $data['price']);
         $this->db->set('is_available', $data['is_available']);
         $this->db->set('image', $data['image']);
-        $this->db->update('menu', ['id' => $data['id']]);
+        $this->db->where(['id' => $data['id']]);
+        $this->db->update('menu');
 
         $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
 
