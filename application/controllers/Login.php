@@ -33,15 +33,29 @@ class Login extends MY_Controller
 
         $current_datetime = date('Y-m-d H:i:s');
 
-        $_SESSION['os_gmail'] = [
-          'first_name'      => $data['given_name'],
-          'last_name'       => $data['family_name'],
-          'email_address'   => $data['email'],
-          'profile_picture' => $data['picture'],
-          'updated_at'      => $current_datetime
-        ];
+        $res = $this->auth->login($data['email']);
 
-        redirect('login/insert_phone');
+        if ($res['status'] == true) {
+          $_SESSION['os_user'] = [
+            'email'      => $res['data']['email'],
+            'nama'       => $res['data']['nama'],
+            'picture'    => $res['data']['photo'],
+            'phone'      => $res['data']['no_telepon']
+          ];
+
+          redirect();
+        } else {
+          # code...
+          $_SESSION['os_gmail'] = [
+            'first_name'      => $data['given_name'],
+            'last_name'       => $data['family_name'],
+            'email_address'   => $data['email'],
+            'profile_picture' => $data['picture'],
+            'updated_at'      => $current_datetime
+          ];
+
+          redirect('login/insert_phone');
+        }
       }
     }
     $data_view = [

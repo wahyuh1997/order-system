@@ -15,7 +15,7 @@ class Auth_model extends MY_Model
         if ($user) {
             return $this->return_success('Login success!', $user);
         } else {
-            return $this->return_success('Must Registered!',[]);
+            return $this->return_failed('Must Registered!', []);
         }
     }
 
