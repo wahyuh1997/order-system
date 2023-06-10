@@ -4,6 +4,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Login extends MY_Controller
 {
 
+  // constructor
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('customer/Auth_model', 'auth');
+  }
+
   public function index()
   {
     include_once APPPATH . "../vendor/autoload.php";
@@ -26,7 +33,7 @@ class Login extends MY_Controller
 
         $current_datetime = date('Y-m-d H:i:s');
 
-        $_SESSION['os_user'] = [
+        $_SESSION['os_gmail'] = [
           'first_name'      => $data['given_name'],
           'last_name'       => $data['family_name'],
           'email_address'   => $data['email'],
@@ -34,7 +41,7 @@ class Login extends MY_Controller
           'updated_at'      => $current_datetime
         ];
 
-        redirect();
+        redirect('login/insert_phone');
       }
     }
     $data_view = [
@@ -58,10 +65,44 @@ class Login extends MY_Controller
 
   public function insert_phone()
   {
-    $data_view = [
-      'title'      => 'Login',
-    ];
+    $post = $this->input->post(null, true);
 
-    $this->load_template_cust('login/phone', $data_view);
+    if (count($post) == 0) {
+      # code...
+      $data_view = [
+        'title'      => 'Login',
+        'js'         => 'login/js/core_phone'
+      ];
+
+      $this->load_template_cust('login/phone', $data_view);
+    } else {
+      $post['email'] = $_SESSION['os_gmail']['email_address'];
+      $post['nama']  = $_SESSION['os_gmail']['first_name'] . ' ' . $_SESSION['os_gmail']['last_name'];
+      $post['photo'] = $_SESSION['os_gmail']['profile_picture'];
+
+      $str = $post['no_telepon'];
+      preg_match_all('!\d+!', $str, $matches);
+      $post['no_telepon'] = $matches[0][0] . $matches[0][1] . $matches[0][2];
+
+      $res = $this->auth->register($post);
+
+      if ($res['status'] == true) {
+        $_SESSION['os_user'] = [
+          'email'      => $_SESSION['os_gmail']['email_address'],
+          'nama'       => $_SESSION['os_gmail']['first_name'] . ' ' . $_SESSION['os_gmail']['last_name'],
+          'picture'    => $_SESSION['os_gmail']['profile_picture'],
+          'phone'      => $post['no_telepon']
+        ];
+
+        unset($_SESSION['os_gmail']);
+      }
+      echo json_encode($res);
+    }
+  }
+
+  public function logout()
+  {
+    session_destroy();
+    redirect();
   }
 }
