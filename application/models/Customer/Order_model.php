@@ -44,10 +44,27 @@ class Order_model extends MY_Model
     }
 
     // $data = [
+    //     'order_id' => 
+    //     'payment' => 
+    // ];
+    function payment($data)
+    {
+        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+
+        // if ($order['status'] != 2) {
+        //     return $this->
+        // }
+        
+    }
+
+    // $data = [
     //     'customer_id' => 
     //     'menu_id' => 
     //      'item'  => 
     // ];
+
+
+    // ================================================= cart ===============================
     function add_cart($data)
     {
         if (strlen($data['menu_id']) < 1) {
