@@ -9,13 +9,12 @@
 <section class="px-2 sticky-top py-3">
   <div class="input-group rounded-2" style="box-shadow: 1px 2px #181818;">
     <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-    <input type="text" class="form-control" placeholder="Cari Produk">
+    <input type="text" id="search" class="form-control" placeholder="Cari Produk">
   </div>
 </section>
 
 <div class="container main-content">
   <section>
-
     <?php foreach ($item as $item) : ?>
       <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
         <div class="row g-0">
@@ -27,15 +26,15 @@
               <h5 class="card-title text-dark-orange"><?= $item['product_name']; ?></h5>
               <small class="card-text text-light-orange"><?= $item['description']; ?></small>
               <div class="row">
-                <div class="col-7 my-auto">
+                <div class="col my-auto">
                   <h5 class="card-text text-dark-orange">Rp. <?= $item['price']; ?></h5>
                 </div>
-                <div class="col-5 ps-0">
-                  <button class="btn btn-outline-orange btn-round align-self-end me-2 add-item">Tambah</button>
-                </div>
-
+                <?php if ($item['is_available'] == 1) : ?>
+                  <div class="col-5 ps-0">
+                    <button class="btn btn-outline-orange btn-round align-self-end me-2 add-item">Tambah</button>
+                  </div>
+                <?php endif; ?>
               </div>
-
             </div>
           </div>
         </div>
