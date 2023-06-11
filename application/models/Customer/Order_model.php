@@ -23,10 +23,22 @@ class Order_model extends MY_Model
         return $this->return_success('', $menu);
     }
 
-    
-    function insert_order($menu_id)
+    // add order
+    function insert_order($customer_id)
     {
-        
+        $this->db->insert('order',['user_customer' => $customer_id]);
+
+        $order_id = $this->db->insert_id();
+
+        $sql_insert = "
+                    INSERT INTO order_detail (menu_id, pesanan_id, product_name, price, item)
+                    SELECT b.id, ?, b.product_name, b.price, a.item
+                    FROM cart a
+                    JOIN menu b on a.menu_id = b.id
+                    WHERE a.customer_id = ?;
+        ";
+
+        $this->db->query($sql_insert, [$order_id, $customer_id]);
     }
 
     // $data = [
