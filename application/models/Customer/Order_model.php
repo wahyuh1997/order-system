@@ -23,6 +23,13 @@ class Order_model extends MY_Model
         return $this->return_success('', $menu);
     }
 
+    function detail_order($order_id)
+    {
+        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+
+        return $this->return_success('', $order);
+    }
+
 
     // add order
     function insert_order($customer_id)
@@ -48,14 +55,22 @@ class Order_model extends MY_Model
     //     'order_id' => 
     //     'payment' => 
     // ];
-    function payment($data)
+    function payment_order($data)
     {
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
-        // if ($order['status'] != 2) {
-        //     return $this->
-        // }
-        
+        if ($order['status'] != 2) {
+            return $this->return_failed('Not admin confirmation',[]);
+        }
+
+        $this->db->set('status' , 3);
+        $this->db->set('payment' , $data['payment']);
+        $this->db->where(['id' => $order['id']]);
+        $this->db->update('order');
+
+        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+
+        return $this->return_success('Payment is inserted!', $order);
     }
 
     // $data = [
