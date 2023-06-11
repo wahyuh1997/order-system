@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 02.43
+-- Waktu pembuatan: 11 Jun 2023 pada 03.06
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -64,7 +64,7 @@ CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
   `product_name` varchar(30) NOT NULL,
   `description` text NOT NULL,
-  `price` int(10) NOT NULL DEFAULT 0,
+  `price` float(10,0) NOT NULL DEFAULT 0,
   `image` varchar(100) DEFAULT NULL,
   `is_available` int(1) NOT NULL DEFAULT 0 COMMENT '1 = ada\r\n0 = kosong'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90,6 +90,15 @@ CREATE TABLE `order` (
   `status` int(1) NOT NULL DEFAULT 1 COMMENT '0 = entry\r\n1 = selesai\r\n2 = diterima admin\r\n3 = pembayaran\r\n4 = ditolak admin\r\n5 = tidak bayar'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`id`, `user_customer`, `payment`, `status`) VALUES
+(4, 1, '', 1),
+(5, 1, '', 1),
+(6, 1, '', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -101,9 +110,17 @@ CREATE TABLE `order_detail` (
   `menu_id` int(11) NOT NULL,
   `pesanan_id` int(11) NOT NULL,
   `product_name` varchar(30) NOT NULL,
-  `price` float(10,2) NOT NULL,
+  `price` float(10,0) NOT NULL,
   `item` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `menu_id`, `pesanan_id`, `product_name`, `price`, `item`) VALUES
+(1, 3, 6, 'Donat Coklat', 8000, 10),
+(2, 4, 6, 'Cookies', 12000, 10);
 
 -- --------------------------------------------------------
 
@@ -195,13 +212,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT untuk tabel `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
