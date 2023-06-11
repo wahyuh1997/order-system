@@ -19,7 +19,7 @@
         <p class="fw-bold">Status Penjualan</p>
       </div>
       <div class="col-6 text-end">
-        <p class="fw-bold">Pre-Order ON</p>
+        <p class="fw-bold">Pre-Order <?= $is_preorder == 1 ? ' ON' : 'OFF'; ?></p>
       </div>
     </div>
   </section>

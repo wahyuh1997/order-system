@@ -17,13 +17,13 @@ class Menu_model extends MY_Model
 
     function get_menu_by_search($search)
     {
-        $menu = $this->db->get('menu')->like('product_name',$search)->result_array();
+        $menu = $this->db->get('menu')->like('product_name', $search)->result_array();
 
         $return = [
             'menu' => $menu,
             $this->pre_order()
         ];
 
-        return return_success('',$return);
+        return $this->return_success('', $return);
     }
 }
