@@ -2,7 +2,8 @@
   $(document).on('click', '.add-item', function() {
     /* First Add Item to Cart */
     let menu_id = $(this).data('id');
-    add_to_cart('add', 1);
+
+    add_to_cart('add', menu_id, 1);
 
     let html = `<div class="row">
                       <div class="col-3 px-0 text-center my-auto">
@@ -11,7 +12,7 @@
                         </button>
                       </div>
                       <div class="col-6 px-1">
-                        <input type="number" min="0" class="form-control inp-qty" value="1">
+                        <input type="number" min="0" class="form-control inp-qty" data-id="${menu_id}" value="1">
                       </div>
                       <div class="col-3 px-0 text-center my-auto">
                         <button class="btn btn-sm btn-outline-orange btn-round btn-add">
@@ -31,14 +32,14 @@
 
   $(document).on('click', '.btn-minus', function() {
     let qty = $(this).parent().parent().find('.inp-qty').val();
+    let menu_id = $(this).parent().parent().find('.inp-qty').data('id');
     qty = qty - 1;
     $(this).parent().parent().find('.inp-qty').val(qty).trigger('change')
 
     if (qty == 0) {
-      let html = `<button class="btn btn-outline-orange btn-round align-self-end me-2 add-item">Tambah</button>`;
+      let html = `<button class="btn btn-outline-orange btn-round align-self-end me-2 add-item" data-id="${menu_id}">Tambah</button>`;
       $(this).parent().parent().parent().html(html)
     }
-
   });
 
   $(document).on('keyup', '#search', function() {
@@ -64,7 +65,11 @@
     let qty = $(this).val();
     let menu_id = $(this).data('id');
 
-    add_to_cart('update', menu_id, qty);
+    if (qty == 0) {
+      add_to_cart('delete', menu_id, qty);
+    } else {
+      add_to_cart('update', menu_id, qty);
+    }
   });
 
   load_cart()
@@ -93,6 +98,8 @@
               </a>`;
 
         $('.load-cart').html(html);
+      } else {
+        $('.load-cart').html(null);
       }
 
     });

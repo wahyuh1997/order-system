@@ -7,26 +7,27 @@ class Order_model extends MY_Model
     function get_order($id_customer)
     {
         $this->db->where(['user_customer' => $id_customer]);
-        $this->db->where_in('status', [0,2,3]);
+        $this->db->where_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
     }
-    
+
     // History Order
     function history_order($id_customer)
     {
         $this->db->where(['user_customer' => $id_customer]);
-        $this->db->where_not_in('status', [0,2,3]);
+        $this->db->where_not_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
     }
 
+
     // add order
     function insert_order($customer_id)
     {
-        $this->db->insert('order',['user_customer' => $customer_id]);
+        $this->db->insert('order', ['user_customer' => $customer_id]);
 
         $order_id = $this->db->insert_id();
 
@@ -58,8 +59,7 @@ class Order_model extends MY_Model
 
         $cart = $this->get_cart($data['customer_id'])['data'];
 
-        return $this->return_success('Insert to cart',$cart);
-
+        return $this->return_success('Insert to cart', $cart);
     }
 
     // $data = [
@@ -67,20 +67,25 @@ class Order_model extends MY_Model
     //     'menu_id' => 
     //      'item'  => 
     // ];
-    
-    function update_cart($data)
+
+    /* 
+    ITEM == QTY
+    Please don't make it confused.
+    */
+
+    public function update_cart($data)
     {
         if (strlen($data['menu_id']) < 1) {
             return $this->return_failed('Please select a menu!', []);
         }
 
         $this->db->set('item', $data['item']);
-        $this->db->where(['customer_id'=> $data['customer_id'],'menu_id' => $data['menu_id']]);
+        $this->db->where(['customer_id' => $data['customer_id'], 'menu_id' => $data['menu_id']]);
         $this->db->update('cart');
 
         $cart = $this->get_cart($data['customer_id'])['data'];
 
-        return $this->return_success('cart is updated',$cart);
+        return $this->return_success('cart is updated', $cart);
     }
 
     // $data = [
@@ -89,16 +94,18 @@ class Order_model extends MY_Model
     // ];
     function delete_cart($data)
     {
-        $this->db->delete('cart',$data);
+        $this->db->where(['customer_id' => $data['customer_id'], 'menu_id' => $data['menu_id']]);
+        $this->db->delete('cart');
 
         $cart = $this->get_cart($data['customer_id'])['data'];
 
-        return $this->return_success('item is deleted!',$cart);
+        return $this->return_success('item is deleted!', $cart);
     }
 
     function get_cart($customer_id)
     {
         $this->db->select('a.*, b.product_name, b.description, b.price, b.image');
+        $this->db->where('customer_id', $customer_id);
         $this->db->from('cart a');
         $this->db->join('menu b', 'a.menu_id = b.id');
         $cart = $this->db->get()->result_array();
