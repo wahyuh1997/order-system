@@ -87,7 +87,7 @@ CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `user_customer` int(11) NOT NULL,
   `payment` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT 1 COMMENT '0 = entry\r\n1 = selesai\r\n2 = diterima admin\r\n3 = pembayaran\r\n4 = ditolak admin\r\n5 = tidak bayar'
+  `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = entry\r\n1 = selesai\r\n2 = diterima admin\r\n3 = pembayaran\r\n4 = ditolak admin\r\n5 = tidak bayar'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
