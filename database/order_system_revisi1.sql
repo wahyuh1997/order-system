@@ -100,7 +100,7 @@ CREATE TABLE `order_detail` (
   `id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `pesanan_id` int(11) NOT NULL,
-  `nama_menu` varchar(100) NOT NULL,
+  `product_name` varchar(30) NOT NULL,
   `price` float(10,2) NOT NULL,
   `item` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
