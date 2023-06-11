@@ -37,6 +37,7 @@ class Login extends MY_Controller
 
         if ($res['status'] == true) {
           $_SESSION['os_user'] = [
+            'id'         => $res['data']['id'],
             'email'      => $res['data']['email'],
             'nama'       => $res['data']['nama'],
             'picture'    => $res['data']['photo'],
@@ -101,7 +102,10 @@ class Login extends MY_Controller
       $res = $this->auth->register($post);
 
       if ($res['status'] == true) {
+        $res = $this->auth->login($_SESSION['os_gmail']['email_address']);
+
         $_SESSION['os_user'] = [
+          'id'         => $res['data']['id'],
           'email'      => $_SESSION['os_gmail']['email_address'],
           'nama'       => $_SESSION['os_gmail']['first_name'] . ' ' . $_SESSION['os_gmail']['last_name'],
           'picture'    => $_SESSION['os_gmail']['profile_picture'],
