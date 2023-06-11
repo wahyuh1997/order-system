@@ -17,7 +17,7 @@
   <section>
     <?php foreach ($item as $item) : ?>
       <?php foreach ($cart_item as $cart) : ?>
-        <?php if ($item['id'] == $cart['menu_id']) : ?>
+        <?php if ($item['id'] == $cart['menu_id'] && $cart['customer_id'] == $_SESSION['os_user']['id']) : ?>
           <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-3">
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-        <?php else : ?>
+        <?php elseif ($cart['customer_id'] == $_SESSION['os_user']['id']) : ?>
           <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-3">
