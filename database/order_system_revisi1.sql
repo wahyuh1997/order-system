@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 03.06
+-- Waktu pembuatan: 12 Jun 2023 pada 15.06
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -40,7 +40,7 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `customer_id`, `menu_id`, `item`) VALUES
 (5, 1, 3, 10),
-(6, 1, 4, 10);
+(6, 1, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -87,17 +87,16 @@ CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `user_customer` int(11) NOT NULL,
   `payment` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = entry\r\n1 = selesai\r\n2 = diterima admin\r\n3 = pembayaran\r\n4 = ditolak admin\r\n5 = tidak bayar'
+  `status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = entry\r\n1 = selesai\r\n2 = diterima admin\r\n3 = pembayaran\r\n4 = ditolak admin\r\n5 = tidak bayar',
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `order`
 --
 
-INSERT INTO `order` (`id`, `user_customer`, `payment`, `status`) VALUES
-(4, 1, '', 1),
-(5, 1, '', 1),
-(6, 1, '', 1);
+INSERT INTO `order` (`id`, `user_customer`, `payment`, `status`, `date`) VALUES
+(6, 1, '', 5, '2023-06-11 22:10:05');
 
 -- --------------------------------------------------------
 
@@ -218,7 +217,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT untuk tabel `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
