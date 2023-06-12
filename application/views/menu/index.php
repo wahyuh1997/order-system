@@ -82,7 +82,7 @@
             </div>
           <?php endif; ?>
         <?php endforeach; ?>
-      <?php else : ?>
+      <?php elseif (isset($_SESSION['os_user'])) : ?>
         <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-3">

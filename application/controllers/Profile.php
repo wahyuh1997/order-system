@@ -19,6 +19,7 @@ class Profile extends MY_Controller
    */
   public function index()
   {
+
     $data = [
       'title'     => 'Profile',
     ];

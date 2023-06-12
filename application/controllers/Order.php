@@ -11,6 +11,7 @@ class Order extends MY_Controller
     if (!isset($_SESSION['os_user'])) {
       redirect('login');
     }
+    $this->load->model('customer/Order_model', 'order');
   }
 
   /**
@@ -26,8 +27,16 @@ class Order extends MY_Controller
 
   public function detail()
   {
+    if (isset($_SESSION['os_user'])) {
+      $cart = $this->order->get_cart($_SESSION['os_user']['id']);
+    } else {
+      $cart['data'] = [];
+    }
+
     $data = [
       'title'     => 'Pesanan',
+      'js'        => 'order/js/core_detail',
+      'cart_item' => $cart['data']
     ];
     $this->load_template_cust('order/detail', $data);
   }

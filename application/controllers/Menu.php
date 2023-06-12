@@ -68,7 +68,7 @@ class Menu extends MY_Controller
         # code...
         foreach ($cart['data'] as $item) {
           $total_qty[]   = $item['item'];
-          $total_price[] = $item['price'];
+          $total_price[] = $item['item'] * $item['price'];
         }
 
         $cart['total_qty']   = array_sum($total_qty);
