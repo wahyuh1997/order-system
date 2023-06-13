@@ -112,9 +112,26 @@ class Order_model extends MY_Model
         return $this->return_success('Order is Completed!', $order);
     }
 
-    // 
+    // Menu Order
     function menu_order()
     {
         $pre_order = $this->menu_owner->pre_order();
+
+        $sql = "
+                select a.id as menu_id, a.product_name, a.description, SUM(b.item)
+                from menu a 
+                join order_detail b on a.id = b.menu_id
+                join order c on a.pesanan_id =c.id
+                where c.status = 3
+                GROUP BY a.id
+            ";
+        $menu = $this->db->query($sql)->result_array();
+
+        $return = [
+            'pre_order' => $pre_order,
+            'menu' => $menu
+        ];
+
+        return $this->return_success('', $return);
     }
 }
