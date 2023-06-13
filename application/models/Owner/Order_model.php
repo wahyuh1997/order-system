@@ -10,20 +10,29 @@ class Order_model extends MY_Model
     }
 
     // Order Active
-    function get_order()
+    function get_final_order()
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $this->db->where_in('status', [0, 2, 3]);
+        $this->db->where('status', 2);
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
     }
+    
+    function get_accept_order()
+    {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
+        $this->db->where_in('status', [0, 3]);
+        $menu = $this->db->get('order')->result_array();
+
+        return $this->return_success('', $menu);
+    }    
 
     // History Order
     function history_order()
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $this->db->where_not_in('status', [0, 2, 3]);
+        $this->db->where_in('status', [1, 4, 5]);
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
