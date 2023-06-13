@@ -129,7 +129,7 @@ class Order_model extends MY_Model
                 select a.id as menu_id, a.product_name, a.description, SUM(b.item)
                 from menu a 
                 join order_detail b on a.id = b.menu_id
-                join order c on a.pesanan_id =c.id
+                join `order` c on b.pesanan_id =c.id
                 where c.status = 3
                 GROUP BY a.id
             ";
@@ -138,6 +138,29 @@ class Order_model extends MY_Model
         $return = [
             'pre_order' => $pre_order,
             'menu' => $menu
+        ];
+
+        return $this->return_success('', $return);
+    }
+
+    function get_order_by_menu($menu_id)
+    {
+        $pre_order = $this->menu_owner->pre_order();
+
+        $sql = "
+                select d.nama, c.id as order_id, SUM(item), LPAD(c.id, 4, '0') as order_number
+                from menu a 
+                join order_detail b on a.id = b.menu_id
+                join `order` c on b.pesanan_id =c.id
+                join user d on c.user_customer = d.id
+                where c.status = 3 and a.id = ?
+                GROUP BY c.user_customer
+        ";
+        $user = $this->db->query($sql, [$menu_id])->result_array();
+
+        $return = [
+            'pre_order' => $pre_order,
+            'user' => $user
         ];
 
         return $this->return_success('', $return);
