@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Order_model extends MY_Model
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Owner/Menu_model', 'menu_owner');
+    }
+
     // Order Active
     function get_order()
     {
@@ -23,7 +29,7 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order',['id' => $order_id])->row_array();
 
         return $this->return_success('', $order);
     }
@@ -89,5 +95,11 @@ class Order_model extends MY_Model
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Completed!', $order);
+    }
+
+    // 
+    function menu_order()
+    {
+        return $pre_order = $this->menu_owner->pre_order();
     }
 }
