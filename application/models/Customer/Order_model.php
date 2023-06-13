@@ -47,8 +47,10 @@ class Order_model extends MY_Model
         ";
 
         $this->db->query($sql_insert, [$order_id, $customer_id]);
+		
+		$return = ['order_id' => $order_id];
 
-        return $this->return_success('order is added', []);
+        return $this->return_success('order is added', $return);
     }
 
     // $data = [
