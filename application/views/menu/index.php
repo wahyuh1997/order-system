@@ -15,10 +15,10 @@
 
 <div class="container main-content">
   <section>
-    <?php foreach ($item as $item) : ?>
+    <?php foreach ($item_data as $item) : ?>
       <?php if (count($cart_item) > 0) : ?>
         <?php foreach ($cart_item as $cart) : ?>
-          <?php if ($item['id'] == $cart['menu_id'] && $cart['customer_id'] == $_SESSION['os_user']['id']) : ?>
+          <?php if ($item['id'] == $cart['menu_id']) : ?>
             <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-3">
@@ -56,7 +56,9 @@
                 </div>
               </div>
             </div>
-          <?php else : ?>
+          <?php endif; ?>
+
+          <?php if (count($item_data) != count($cart_item) && $item['id'] != $cart['menu_id']) : ?>
             <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-3">
@@ -72,7 +74,7 @@
                       </div>
                       <?php if ($item['is_available'] == 1) : ?>
                         <div class="col-5 ps-0">
-                          <button class="btn btn-outline-orange btn-round align-self-end me-2 add-item">Tambah</button>
+                          <button class="btn btn-outline-orange btn-round align-self-end me-2 add-item" data-id="<?= $item['id']; ?>">Tambah</button>
                         </div>
                       <?php endif; ?>
                     </div>
@@ -81,6 +83,7 @@
               </div>
             </div>
           <?php endif; ?>
+
         <?php endforeach; ?>
       <?php elseif (isset($_SESSION['os_user'])) : ?>
         <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">

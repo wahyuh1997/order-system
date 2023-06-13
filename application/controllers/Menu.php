@@ -25,12 +25,15 @@ class Menu extends MY_Controller
       $cart['data'] = [];
     }
 
+
     $data = [
       'title'     => 'Home',
       'js'        => 'menu/core',
-      'item'      => $res['data']['menu'],
+      'item_data' => $res['data']['menu'],
       'cart_item' => $cart['data']
     ];
+
+
     $this->load_template_cust('menu/index', $data, true);
   }
 
