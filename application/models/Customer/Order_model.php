@@ -27,7 +27,7 @@ class Order_model extends MY_Model
     {
         $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
 
-        $this->db->select('a.product_name, a.price, a.item as qty, b.description, b.image, (a.price * a.item) as price_total');
+        $this->db->select('a.product_name, a.price, a.item, b.description, b.image, (a.price * a.item) as price_total');
         $this->db->from('order_detail a');
         $this->db->join('menu b', 'a.menu_id = b.id');
         $this->db->where('a.pesanan_id', $order_id);
