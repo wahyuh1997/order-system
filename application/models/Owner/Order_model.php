@@ -36,7 +36,7 @@ class Order_model extends MY_Model
     {
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
-        if ($order['status'] != 0) {
+        if ($order['status'] != 3) {
             return $this->return_failed('Order not Accepted',[]);
         }
 
