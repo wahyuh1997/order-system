@@ -25,7 +25,7 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
-        $this->db->select('b.pesanan_id as order_is
+        $this->db->select('b.pesanan_id as order_id
                             , b.product_name
                             , b.price
                             , b.item
