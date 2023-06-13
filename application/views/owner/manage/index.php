@@ -21,7 +21,7 @@
         Status Penjualan
       </div>
       <div class="col-6 fw-bold text-dark-orange text-end">
-        <input type="checkbox" id="order-toggle" class="order-toggle" data-toggle="toggle" checked onchange="toggle_all()">
+        <input type="checkbox" id="order-toggle" class="order-toggle" data-toggle="toggle" <?= $is_preorder == 1 ? ' checked' : ''; ?> onchange="toggle_all()">
       </div>
     </div>
   </section>
@@ -31,7 +31,7 @@
   <section class="mt-3">
 
     <?php foreach ($item as $item) : ?>
-      <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="max-width: 540px;">
+      <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="max-width: 540px; cursor: pointer;">
         <div class="row g-0">
           <div class="col-3">
             <img src="<?= base_url('assets/img/product/' . $item['image']); ?>." class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-2 text-end">
                   <div class="form-check fs-3">
-                    <input class="form-check-input" type="checkbox" value="" <?= $item['is_available'] == 1 ? 'checked' : ''; ?>>
+                    <input class="form-check-input" type="checkbox" data-id="<?= $item['id']; ?>" value="<?= $item['is_available']; ?>" <?= $item['is_available'] == 1 ? 'checked' : ''; ?>>
                   </div>
                 </div>
               </div>

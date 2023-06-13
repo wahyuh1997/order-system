@@ -44,6 +44,12 @@ class Auth_model extends MY_Model
     if (strlen($data['user_name']) < 1 || strlen($data['nama']) < 1 || strlen($data['password']) < 1) {
       return $this->return_failed('username, nama, dan password silahkan diisi!', []);
     }
+    
+    if (strlen($data['password']) < 6) {
+      return $this->return_failed('password min 6 characters', []);
+    }
+
+    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
     if ($this->db->get_where('user', ['user_name' => $data['user_name']])->row_array()) {
       return $this->return_failed('username sudah digunakan!', []);
@@ -79,9 +85,11 @@ class Auth_model extends MY_Model
       return $this->return_failed('nama is required!', []);
     }
 
-    // if ($this->db->get_where('user', ['user_name' => $data['user_name']])->row_array()) {
-    //   return $this->return_failed('username sudah digunakan!', []);
-    // }
+    if (!($user['user_name'] == $data['user_name'])) {
+      if ($this->db->get_where('user', ['user_name' => $data['user_name']])->row_array()) {
+        return $this->return_failed('username sudah digunakan!', []);
+      }
+    }
 
     /* 
     Password only change if they do fill in.
@@ -101,7 +109,8 @@ class Auth_model extends MY_Model
     $this->db->set('nama', $data['nama']);
     $this->db->set('no_telepon', $data['no_telepon']); // For WhatsApp Call Setting. 
 
-    $simpan = $this->db->update('user', ['id' => $data['id']]);
+    $this->db->where(['id' => $data['id']]);
+    $simpan = $this->db->update('user');
 
     return $this->return_success('Data berhasil diubah!', $simpan);
   }

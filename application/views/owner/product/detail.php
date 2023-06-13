@@ -15,7 +15,7 @@
   <div class="card">
     <div class="card-body text-light-orange">
       <h6 class="mb-0 text-light-orange fw-bold"><?= $data['product_name']; ?></h6>
-      <img src="<?= base_url('assets/img/product/' . $data['image']); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
+      <img src="<?= $data['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/' . $data['image']); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
 
       <div class="mb-3">
         <p class="mb-0 text-light-orange fw-bold">Nama Produk</p>
@@ -36,12 +36,12 @@
     <div class="row">
       <div class="col-6">
         <div class="d-grid gap-2">
-          <a href="<?= base_url('owner/product/edit'); ?>" class="btn btn-orange">Ubah</a>
+          <a href="<?= base_url('owner/product/edit/' . $data['id']); ?>" class="btn btn-orange">Ubah</a>
         </div>
       </div>
       <div class="col-6">
         <div class="d-grid gap-2">
-          <a href="" class="btn btn-orange">Hapus</a>
+          <a href="<?= base_url('owner/product/delete/' . $data['id']); ?>" class="btn btn-orange del-sel" data-redurl='<?= base_url('owner/product'); ?>'>Hapus</a>
         </div>
       </div>
     </div>

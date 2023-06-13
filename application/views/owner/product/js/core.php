@@ -5,7 +5,7 @@
       .attr('src', window.URL.createObjectURL(this.files[0]))
       .addClass('img-thumbnail')
       .css({
-        'height': '180px',
+        'height': '150px',
         'width': '100%',
         'display': 'block',
         'cursor': 'pointer'
@@ -15,7 +15,7 @@
 
   $(document).on('click', '.del-image', function(e) {
     e.preventDefault()
-    let parent = $(this).parent().parent()
+    let parent = $(this).parent()
 
     parent.find('.del-image').fadeIn();
     parent.find('.pic').removeAttr('src').removeClass('img-thumbnail').css('height', '0').fadeOut()

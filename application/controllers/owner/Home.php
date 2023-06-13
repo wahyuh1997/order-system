@@ -8,6 +8,7 @@ class Home extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('owner/Menu_model', 'menu');
   }
 
   /**
@@ -15,8 +16,11 @@ class Home extends MY_Controller
    */
   public function index()
   {
+    $res = $this->menu->get_all_menu();
+
     $data = [
-      'title'     => 'Halaman Utama',
+      'title'       => 'Halaman Utama',
+      'is_preorder' => $res['data'][0]['is_preorder']
     ];
     $this->load_template('owner/home/index', $data);
   }

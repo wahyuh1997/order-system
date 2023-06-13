@@ -154,6 +154,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.not-avail {
+  filter: grayscale(100%);
+}
+
 /* End Of Main Section */
 
 /* Footer Section */

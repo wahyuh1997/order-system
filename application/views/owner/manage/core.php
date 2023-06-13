@@ -1,12 +1,49 @@
 <script>
   function toggle_all() {
-
     if ($('#order-toggle').prop('checked') == true) {
       $('.form-check-input').prop('checked', true)
       $('.card').addClass('active');
+
+      $('.form-check-input').each(function() {
+        let id = $(this).data('id')
+        let is_avail = $(this).val() == 1 ? 0 : 1;
+        $.ajax({
+          url: 'manage/is_avail',
+          method: 'POST',
+          async: true,
+          dataType: 'JSON',
+          data: {
+            id: id,
+            is_activate: is_avail
+          },
+          success: function(data) {
+            console.log('ok');
+          }
+        })
+      });
+
+
     } else {
       $('.form-check-input').prop('checked', false)
       $('.card').removeClass('active');
+
+      $('.form-check-input').each(function() {
+        let id = $(this).data('id')
+        let is_avail = $(this).val() == 1 ? 0 : 1;
+        $.ajax({
+          url: 'manage/is_avail',
+          method: 'POST',
+          async: true,
+          dataType: 'JSON',
+          data: {
+            id: id,
+            is_activate: is_avail
+          },
+          success: function(data) {
+            console.log('ok');
+          }
+        })
+      });
     }
   }
 
@@ -20,9 +57,9 @@
       $('.form-check-input').prop('checked', false)
       $('.card').removeClass('active');
     }
-
-
   }
+
+
 
   $(document).on('click', '.form-check-input', function() {
     if ($('.card.active').length == 0) {
@@ -40,7 +77,21 @@
       $('.order-toggle').bootstrapToggle('off')
     }
 
-
+    let id = $(this).data('id')
+    let is_avail = $(this).val() == 1 ? 0 : 1;
+    $.ajax({
+      url: 'manage/is_avail',
+      method: 'POST',
+      async: true,
+      dataType: 'JSON',
+      data: {
+        id: id,
+        is_activate: is_avail
+      },
+      success: function(data) {
+        console.log('ok');
+      }
+    })
 
   });
 </script>
