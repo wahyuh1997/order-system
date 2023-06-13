@@ -1,13 +1,13 @@
-<div class="container my-2">
-  <nav class="navbar bg-body-tertiary border-bottom border-dark">
-    <div class="container-fluid">
-      <div class="fw-bold" role="navbar">
-        <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
-        <h6 class="d-inline-block text-dark-orange">Pesanan</h6>
-      </div>
+<nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
+  <div class="container-fluid">
+    <div class="fw-bold" role="navbar">
+      <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <h6 class="d-inline-block text-dark-orange">Pesanan</h6>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container my-2">
   <!-- Info Product -->
   <section class="mt-3">
     <h6 class="text-dark-orange">Informasi Produk</h6>
@@ -103,8 +103,10 @@
     </div>
   </section>
 
-  <!-- Order Button -->
-  <section class="d-grid gap-2 mt-2">
-    <a href="<?= base_url('order/payment'); ?>" id="btn-order" class="btn btn-orange">Pesan</a>
-  </section>
+  <form method="post">
+    <!-- Order Button -->
+    <section class="d-grid gap-2 mt-2">
+      <button type="submit" id="btn-order" name="submit" class="btn btn-orange">Pesan</button>
+    </section>
+  </form>
 </div>

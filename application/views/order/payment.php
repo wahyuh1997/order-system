@@ -47,41 +47,43 @@
     </div>
   </section>
 
-  <!-- Transfer Info -->
-  <section class="mt-3">
-    <h6 class="mb-0 text-dark-orange">Metode Pembayaran</h6>
-    <div class="card">
-      <div class="card-body text-dark-orange">
-        <div>
-          <p class="mb-0 text-light-orange">Transfer Bank</p>
-          <img src="<?= base_url('assets/img/bca.png'); ?>" alt="">
-        </div>
-        <div class="mt-3">
-          <p class="mb-0 text-light-orange">No. Rekening</p>
-          <div class="card">
-            <div class="card-body p-2 text-light-orange">
-              7615134380
+  <form method="post" enctype="multipart/form-data">
+    <!-- Transfer Info -->
+    <section class="mt-3">
+      <h6 class="mb-0 text-dark-orange">Metode Pembayaran</h6>
+      <div class="card">
+        <div class="card-body text-dark-orange">
+          <div>
+            <p class="mb-0 text-light-orange">Transfer Bank</p>
+            <img src="<?= base_url('assets/img/bca.png'); ?>" alt="">
+          </div>
+          <div class="mt-3">
+            <p class="mb-0 text-light-orange">No. Rekening</p>
+            <div class="card">
+              <div class="card-body p-2 text-light-orange">
+                7615134380
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mt-3">
-          <p class="mb-0 text-light-orange">Nama</p>
-          <div class="card">
-            <div class="card-body p-2 text-light-orange">
-              Ismi Retno Utari
+          <div class="mt-3">
+            <p class="mb-0 text-light-orange">Nama</p>
+            <div class="card">
+              <div class="card-body p-2 text-light-orange">
+                Ismi Retno Utari
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mt-3">
-          <label for="formFile" class="text-light-orange">Unggah Bukti Pembayaran</label>
-          <input class="form-control form-control-sm" id="formFile" type="file" accept="image/*">
+          <div class="mt-3">
+            <label for="formFile" class="text-light-orange">Unggah Bukti Pembayaran</label>
+            <input class="upd-image jfilestyle rounded" name="image" id="formFile" type="file" accept="image/*" data-inputSize="440px" style="width: 100%;">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Order Button -->
-  <section class="d-grid gap-2 mt-2">
-    <button class="btn btn-orange">Bayar</button>
-  </section>
+    <!-- Order Button -->
+    <section class="d-grid gap-2 mt-2">
+      <button type="submit" class="btn btn-orange" name="submit" disabled>Bayar</button>
+    </section>
+  </form>
 </div>

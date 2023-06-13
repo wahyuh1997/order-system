@@ -126,15 +126,17 @@
     </div>
   </section>
 
-  <section class="mt-3">
-    <div>
-      <label for="formFile" class="text-dark-orange">Bukti Pembayaran</label>
-      <input class="form-control form-control-sm" id="formFile" type="file" accept="image/*">
-    </div>
-  </section>
+  <form method="post" enctype="multipart/form-data">
+    <section>
+      <div class="mt-3">
+        <label for="formFile" class="text-dark-orange">Bukti Pembayaran</label>
+        <input class="form-control form-control-sm" name="image" id="formFile" type="file" accept="image/*">
+      </div>
+    </section>
 
-  <!-- Order Button -->
-  <section class="d-grid gap-2 mt-2">
-    <a href="https://api.whatsapp.com/send?phone=08994717893" target="_blank" class="btn btn-orange">Hubungi Penjual via WhatsApp</a>
-  </section>
+    <!-- Order Button -->
+    <section class="d-grid gap-2 mt-2">
+      <a href="https://api.whatsapp.com/send?phone=08994717893" target="_blank" class="btn btn-orange">Hubungi Penjual via WhatsApp</a>
+    </section>
+  </form>
 </div>

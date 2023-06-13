@@ -25,7 +25,7 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
 
         return $this->return_success('', $order);
     }
@@ -47,8 +47,8 @@ class Order_model extends MY_Model
         ";
 
         $this->db->query($sql_insert, [$order_id, $customer_id]);
-		
-		$return = ['order_id' => $order_id];
+
+        $return = ['order_id' => $order_id];
 
         return $this->return_success('order is added', $return);
     }
@@ -59,18 +59,23 @@ class Order_model extends MY_Model
     // ];
     function payment_order($data)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
-        if ($order['status'] != 2) {
-            return $this->return_failed('Not admin confirmation',[]);
-        }
+        /* 
+            Cannot update the status payment if used this way, please fix it.   
+        */
 
-        $this->db->set('status' , 3);
-        $this->db->set('payment' , $data['payment']);
-        $this->db->where(['id' => $order['id']]);
+        // $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
+
+        // if ($order['status'] != 2) {
+        //     return $this->return_failed('Not admin confirmation', []);
+        // }
+
+        $this->db->set('status', 3);
+        $this->db->set('payment', $data['payment']);
+        $this->db->where(['id' => $data['order_id']]);
         $this->db->update('order');
 
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Payment is inserted!', $order);
     }
