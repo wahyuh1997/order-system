@@ -25,7 +25,18 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
-        $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
+        $this->db->select('b.pesanan_id as order_is
+                            , b.product_name
+                            , b.price
+                            , b.item
+                            , c.description
+                            , c.image
+                            ');
+        $this->db->from('order a');
+        $this->db->join('order_detail b', 'a.id = b.order_id');
+        $this->db->join('menu c', 'b.menu_id = c.id');
+        $this->db->where(['a.id' => $order_id]);
+        $order = $this->db->get()->row_array();
 
         return $this->return_success('', $order);
     }
