@@ -12,6 +12,7 @@ class Order_model extends MY_Model
     // Order Active
     function get_order()
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
 
@@ -21,6 +22,7 @@ class Order_model extends MY_Model
     // History Order
     function history_order()
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where_not_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
 
@@ -29,6 +31,7 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order',['id' => $order_id])->row_array();
 
         return $this->return_success('', $order);
@@ -50,6 +53,7 @@ class Order_model extends MY_Model
         $this->db->where(['id' => $order['id']]);
         $this->db->update('order');
 
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Accepted!', $order);
@@ -71,6 +75,7 @@ class Order_model extends MY_Model
         $this->db->where(['id' => $order['id']]);
         $this->db->update('order');
 
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Rejected!', $order);
@@ -92,6 +97,7 @@ class Order_model extends MY_Model
         $this->db->where(['id' => $order['id']]);
         $this->db->update('order');
 
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Completed!', $order);
@@ -100,6 +106,6 @@ class Order_model extends MY_Model
     // 
     function menu_order()
     {
-        return $pre_order = $this->menu_owner->pre_order();
+        $pre_order = $this->menu_owner->pre_order();
     }
 }

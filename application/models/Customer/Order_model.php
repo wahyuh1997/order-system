@@ -6,6 +6,7 @@ class Order_model extends MY_Model
     // Order Active
     function get_order($id_customer)
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where(['user_customer' => $id_customer]);
         $this->db->where_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
@@ -16,6 +17,7 @@ class Order_model extends MY_Model
     // History Order
     function history_order($id_customer)
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where(['user_customer' => $id_customer]);
         $this->db->where_not_in('status', [0, 2, 3]);
         $menu = $this->db->get('order')->result_array();
@@ -25,6 +27,7 @@ class Order_model extends MY_Model
 
     function detail_order($order_id)
     {
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
 
         $this->db->select('a.product_name, a.price, a.item, b.description, b.image, (a.price * a.item) as price_total');
@@ -85,7 +88,8 @@ class Order_model extends MY_Model
         $this->db->set('payment', $data['payment']);
         $this->db->where(['id' => $data['order_id']]);
         $this->db->update('order');
-
+        
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Payment is inserted!', $order);
