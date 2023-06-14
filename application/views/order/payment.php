@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
   <div class="container-fluid">
     <div class="fw-bold" role="search">
-      <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <a href="<?= base_url('order'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
       <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
   </div>
@@ -75,7 +75,7 @@
           </div>
           <div class="mt-3">
             <label for="formFile" class="text-light-orange">Unggah Bukti Pembayaran</label>
-            <input class="upd-image jfilestyle rounded" name="image" id="formFile" type="file" accept="image/*" data-inputSize="440px" style="width: 100%;">
+            <input class="form-control form-control-sm upd-image rounded" name="image" id="formFile" type="file" accept="image/*">
           </div>
         </div>
       </div>

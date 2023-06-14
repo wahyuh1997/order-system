@@ -14,25 +14,28 @@ class Order_model extends MY_Model
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where('status', 2);
+        $this->db->order_by('id', 'DESC');
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
     }
-    
+
     function get_accept_order()
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where_in('status', [0, 3]);
+        $this->db->order_by('id', 'DESC');
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
-    }    
+    }
 
     // History Order
     function history_order()
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $this->db->where_in('status', [1, 4, 5]);
+        $this->db->order_by('id', 'DESC');
         $menu = $this->db->get('order')->result_array();
 
         return $this->return_success('', $menu);
@@ -41,7 +44,7 @@ class Order_model extends MY_Model
     function detail_order($order_id)
     {
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $order = $this->db->get_where('order',['id' => $order_id])->row_array();
+        $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
 
         $this->db->select('a.product_name, a.price, a.item, b.description, b.image, (a.price * a.item) as price_total');
         $this->db->from('order_detail a');
@@ -60,64 +63,68 @@ class Order_model extends MY_Model
 
     function accept_order($data)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
         if ($order['status'] != 3) {
-            return $this->return_failed('Order not Accepted',[]);
+            return $this->return_failed('Order not Accepted', []);
         }
 
-        $this->db->set('status' , 2);
+        $this->db->set('status', 2);
         $this->db->where(['id' => $order['id']]);
         $this->db->update('order');
 
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Accepted!', $order);
     }
-    
+
     // $data = [
     //     'order_id' => 
     // ];
 
     function reject_order($data)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-        if ($order['status'] != 0) {
-            return $this->return_failed('Order is not rejected',[]);
-        }
+        /* 
+            Please Fix it !
+        */
+        // if ($order['status'] != 0) {
+        //     return $this->return_failed('Order is not rejected', []);
+        // }
 
-        $this->db->set('status' , 4);
+        $this->db->set('status', 4);
         $this->db->where(['id' => $order['id']]);
         $this->db->update('order');
 
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
         return $this->return_success('Order is Rejected!', $order);
     }
-    
+
     // $data = [
     //     'order_id' => 
     // ];
 
     function final_order($data)
     {
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
+        $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-        if ($order['status'] != 3) {
-            return $this->return_failed('Unpaid order',[]);
+        if ($order['status'] == 2) {
+
+            $this->db->set('status', 1);
+            $this->db->where(['id' => $order['id']]);
+            $this->db->update('order');
+
+            $this->db->select("*, LPAD(id, 4, '0') as order_number");
+            $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
+
+            return $this->return_success('Order is Completed!', $order);
+        } else {
+            return $this->return_failed('Unpaid order', []);
         }
-
-        $this->db->set('status' , 1);
-        $this->db->where(['id' => $order['id']]);
-        $this->db->update('order');
-
-        $this->db->select("*, LPAD(id, 4, '0') as order_number");
-        $order = $this->db->get_where('order',['id' => $data['order_id']])->row_array();
-
-        return $this->return_success('Order is Completed!', $order);
     }
 
     // Menu Order

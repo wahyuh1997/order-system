@@ -8,12 +8,14 @@ $('.phone').mask('(0000) 0000-0000');
     var url = $(this).attr('action');
     var redUrl = $(this).data('redurl');
     var form_data = new FormData($(this)[0]);
+    
     Swal.fire({
       icon: 'warning',
       title: 'Konfirmasi',
       showCancelButton: true,
       confirmButtonText: `OK`,
       cancelButtonText: `Batal`,
+      reverseButtons: true,
       text: 'Pastikan Data Yang Anda Input Telah Sesuai',
     }).then((result) => {
       if (result.isConfirmed == false) {

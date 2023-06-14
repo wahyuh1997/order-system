@@ -10,101 +10,95 @@
 <div class="container my-2">
   <nav>
     <div class="nav nav-underline nav-justified mt-2" id="nav-tab" role="tablist">
-      <button class="nav-link active" id="nav-new-tab" data-bs-toggle="tab" data-bs-target="#nav-new" type="button" role="tab" aria-controls="nav-new" aria-selected="true">Pesanan Baru</button>
-      <button class="nav-link" id="nav-order-tab" data-bs-toggle="tab" data-bs-target="#nav-order" type="button" role="tab" aria-controls="nav-order" aria-selected="false">Proses</button>
-      <button class="nav-link" id="nav-complete-tab" data-bs-toggle="tab" data-bs-target="#nav-complete" type="button" role="tab" aria-controls="nav-complete" aria-selected="false">Selesai</button>
+      <button class="nav-link <?= $type == null ? 'active' : null; ?>" id="nav-new-tab" data-bs-toggle="tab" data-bs-target="#nav-new" type="button" role="tab" aria-controls="nav-new" aria-selected="true">Pesanan Baru</button>
+      <button class="nav-link <?= $type == 'process' ? 'active' : null; ?>" id="nav-order-tab" data-bs-toggle="tab" data-bs-target="#nav-order" type="button" role="tab" aria-controls="nav-order" aria-selected="false">Proses</button>
+      <button class="nav-link <?= $type == 'history' ? 'active' : null; ?>" id="nav-complete-tab" data-bs-toggle="tab" data-bs-target="#nav-complete" type="button" role="tab" aria-controls="nav-complete" aria-selected="false">Selesai</button>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab" tabindex="0" style="position: relative;">
-
-      <a href="<?= base_url('owner/order/detail'); ?>" class="text-decoration-none">
-        <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-          <div class="row g-0 text-light-orange">
-            <div class="col-3 text-center my-auto">
-              <i class="fa-solid fa-cart-shopping fa-3x"></i>
-            </div>
-            <div class="col-9">
+    <div class="tab-pane fade <?= $type == null ? 'active show' : null; ?>" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab" tabindex="0" style="position: relative;">
+      <?php if (count($new_data) > 0) : ?>
+        <?php foreach ($new_data as $new) : ?>
+          <a href="<?= base_url('owner/order/detail/' . $new['id']); ?>" class="text-decoration-none">
+            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
               <div class="card-body">
-                <h6 class="card-title mb-0">Pesanan 0001</h6>
-                <small class="card-text">Proses</small>
+                <div class="row g-0 text-light-orange">
+                  <div class="col-3 text-center my-auto">
+                    <i class="fa-solid fa-cart-shopping fa-3x"></i>
+                  </div>
+                  <div class="col-9">
+                    <div class="card-body">
+                      <h6 class="card-title mb-0">Pesanan <?= $new['order_number']; ?></h6>
+                      <!-- <small class="card-text">Proses</small> -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </a>
-      <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-        <div class="row g-0 text-light-orange">
-          <div class="col-3 text-center my-auto">
-            <i class="fa-solid fa-cart-shopping fa-3x"></i>
-          </div>
-          <div class="col-9">
-            <div class="card-body">
-              <h6 class="card-title mb-0">Pesanan 0002</h6>
-              <small class="card-text">Menunggu Konfirmasi Restoran</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <p class="mt-5 text-dark-orange fw-bold text-center">
-        Tidak ada pesanan, silahkan melakukan pemesanan.
-      </p> -->
+          </a>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p class="mt-5 text-dark-orange fw-bold text-center">
+          Tidak ada pesanan.
+        </p>
+      <?php endif; ?>
+
     </div>
-    <div class="tab-pane fade" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab" tabindex="0">
-      <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-        <div class="row g-0 text-light-orange">
-          <div class="col-3 text-center my-auto">
-            <i class="fa-solid fa-cart-shopping fa-3x"></i>
-          </div>
-          <div class="col-9">
-            <div class="card-body">
-              <h6 class="card-title mb-0">Pesanan 0001</h6>
-              <small class="card-text">Proses</small>
+    <div class="tab-pane fade <?= $type == 'process' ? 'active show' : null; ?>" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab" tabindex="0">
+      <?php if (count($process_data) > 0) : ?>
+        <?php foreach ($process_data as $process) : ?>
+          <a href="<?= base_url('owner/order/detail/' . $process['id']); ?>" class="text-decoration-none">
+            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+              <div class="card-body">
+                <div class="row g-0 text-light-orange">
+                  <div class="col-3 text-center my-auto">
+                    <i class="fa-solid fa-cart-shopping fa-3x"></i>
+                  </div>
+                  <div class="col-9">
+                    <div class="card-body">
+                      <h6 class="card-title mb-0">Pesanan <?= $process['order_number']; ?></h6>
+                      <!-- <small class="card-text">Proses</small> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-        <div class="row g-0 text-light-orange">
-          <div class="col-3 text-center my-auto">
-            <i class="fa-solid fa-cart-shopping fa-3x"></i>
-          </div>
-          <div class="col-9">
-            <div class="card-body text-danger">
-              <h6 class="card-title mb-0">Pesanan 0002</h6>
-              <small class="card-text">Dibatalkan</small>
-            </div>
-          </div>
-        </div>
-      </div>
+          </a>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p class="mt-5 text-dark-orange fw-bold text-center">
+          Tidak ada pesanan.
+        </p>
+      <?php endif; ?>
     </div>
-    <div class="tab-pane fade" id="nav-complete" role="tabpanel" aria-labelledby="nav-complete-tab" tabindex="0">
-      <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-        <div class="row g-0 text-light-orange">
-          <div class="col-3 text-center my-auto">
-            <i class="fa-solid fa-cart-shopping fa-3x"></i>
-          </div>
-          <div class="col-9">
-            <div class="card-body">
-              <h6 class="card-title mb-0">Pesanan 0001</h6>
-              <small class="card-text">Proses</small>
+    <div class="tab-pane fade <?= $type == 'history' ? 'active show' : null; ?>" id="nav-complete" role="tabpanel" aria-labelledby="nav-complete-tab" tabindex="0">
+      <?php if (count($history_data) > 0) : ?>
+        <?php foreach ($history_data as $history) : ?>
+          <a href="<?= base_url('owner/order/detail/' . $history['id']); ?>" class="text-decoration-none">
+            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+              <div class="card-body">
+                <div class="row g-0 text-light-orange">
+                  <div class="col-3 text-center my-auto">
+                    <i class="fa-solid fa-cart-shopping fa-3x"></i>
+                  </div>
+                  <div class="col-9">
+                    <div class="card-body <?= $history['status'] == 5 | $history['status'] == 4 ? 'text-danger' : null; ?>">
+                      <h6 class="card-title mb-0">Pesanan <?= $history['order_number']; ?></h6>
+                      <small class="card-text">
+                        <?= $history['status'] == 1 ? 'Selesai' : 'Dibatalkan'; ?>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
-        <div class="row g-0 text-light-orange">
-          <div class="col-3 text-center my-auto">
-            <i class="fa-solid fa-cart-shopping fa-3x"></i>
-          </div>
-          <div class="col-9">
-            <div class="card-body text-danger">
-              <h6 class="card-title mb-0">Pesanan 0003</h6>
-              <small class="card-text">Dibatalkan</small>
-            </div>
-          </div>
-        </div>
-      </div>
+          </a>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p class="mt-5 text-dark-orange fw-bold text-center">
+          Tidak ada pesanan.
+        </p>
+      <?php endif; ?>
     </div>
   </div>
 </div>
