@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary border-bottom border-dark mt-2">
   <div class="container-fluid">
     <div class="fw-bold" role="navbar">
-      <a href="<?= base_url(''); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
+      <a href="<?= base_url('order'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
       <h6 class="d-inline-block text-dark-orange">Pesanan</h6>
     </div>
   </div>

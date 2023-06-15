@@ -12,6 +12,7 @@ class Order extends MY_Controller
       redirect('login');
     }
     $this->load->model('customer/Order_model', 'order');
+    $this->load->model('User_model', 'user');
   }
 
   /**
@@ -19,9 +20,16 @@ class Order extends MY_Controller
    */
   public function index()
   {
+    $get_process = $this->order->get_order($_SESSION['os_user']['id']);
+    $get_history = $this->order->history_order($_SESSION['os_user']['id']);
+
     $data = [
-      'title'     => 'Home',
+      'title'          => 'Home',
+      'data_process'   => $get_process['data'],
+      'data_history'   => $get_history['data']
     ];
+
+
     $this->load_template_cust('order/index', $data, true);
   }
 
@@ -43,8 +51,12 @@ class Order extends MY_Controller
       ];
       $this->load_template_cust('order/detail', $data);
     } else {
-      $this->order->insert_order($_SESSION['os_user']['id']);
-      redirect('order/payment');
+      $res = $this->order->insert_order($_SESSION['os_user']['id']);
+
+      if ($res['status'] == true) {
+        # move page
+        redirect('order/payment/' . $res['data']['order_id']);
+      }
     }
   }
 
@@ -81,20 +93,29 @@ class Order extends MY_Controller
         $post['payment'] = $fileName;
       }
 
-      $this->order->payment_order($post);
-      redirect('order/confirm');
+      $res = $this->order->payment_order($post);
+
+      if ($res['status'] == true) {
+        # code...
+        redirect('order/confirm/' . $res['data']['id']);
+      }
     }
   }
 
   public function confirm($id)
   {
     $post = $this->input->post(null, true);
-    $data = $this->order->detail_order($id);
+    $res  = $this->order->detail_order($id);
+    $user = $this->user->get_detail_user(1);
 
     if (count($post) == 0) {
       # code...
       $data_view = [
-        'title'     => 'Pesanan 0001',
+        'title'     => 'Pesanan ' . $res['data']['order_number'],
+        'data'      => $res['data'],
+        'js'        => 'order/js/core_payment',
+        'wa_phone'  => $user['data']['no_telepon']
+        // 'item_data' => $res['data']['order_detail'],
       ];
       $this->load_template_cust('order/confirm', $data_view);
     } else {
