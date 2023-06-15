@@ -174,9 +174,9 @@ class Order_model extends MY_Model
     }
 
     // $data = [
-    //     'date1' => 
-    //     'date2'
-    // ];
+    //         'date1' => '2023-06-01',
+    //         'date2' => '2023-06-01'
+    //     ];
     function report($data)
     {
         $return = [
@@ -190,8 +190,9 @@ class Order_model extends MY_Model
         // category order
         $sql_status = "select status, count(status) amount from `order`
                         where status in (1,4)
+                        and date between ? and ?
                         group by status;";
-        $amount_category_order = $this->db->query($sql_status)->result_array();
+        $amount_category_order = $this->db->query($sql_status, [$data['date1'], $data['date2']])->result_array();
 
         foreach ($amount_category_order as $ctr) {
             if ($ctr['status'] == 1) {
@@ -205,8 +206,9 @@ class Order_model extends MY_Model
         $sql_income = "select sum(b.item*b.price) as total_income, sum(item) as total_product
                         from `order` a
                         join order_detail b on a.id = b.pesanan_id
+                        and a.date between ? and ?
                         where status = 1;";
-        $income = $this->db->query($sql_income)->row_array();
+        $income = $this->db->query($sql_income, [$data['date1'], $data['date2']])->row_array();
 
         $return['total_income'] = $income['total_income'];
         $return['total_product'] = $income['total_product'];
@@ -216,8 +218,9 @@ class Order_model extends MY_Model
                         join order_detail b on a.id = b.pesanan_id
                         join user c on a.user_customer = c.id
                         where a.status in (1,4)
+                        and date between ? and ?
                         group by a.id ;";
-        $order = $this->db->query($sql_order)->result_array();
+        $order = $this->db->query($sql_order, [$data['date1'], $data['date2']])->result_array();
 
         $return['order'] = $order;
 
