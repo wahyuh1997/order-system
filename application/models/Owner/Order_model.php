@@ -165,4 +165,55 @@ class Order_model extends MY_Model
 
         return $this->return_success('', $return);
     }
+
+    // $data = [
+    //     'date1' => 
+    //     'date2'
+    // ];
+    function report($data)
+    {
+        $return = [
+            'order_success' => "0",
+            'order_failed' => "0",
+            'total_income' => "0",
+            'total_product' => "0",
+            'order' => [],
+        ];
+
+        // category order
+        $sql_status = "select status, count(status) amount from `order`
+                        where status in (1,4)
+                        group by status;";
+        $amount_category_order = $this->db->query($sql_status)->result_array();
+
+        foreach ($amount_category_order as $ctr) {
+            if ($ctr['status'] == 1) {
+                $return['order_success'] = $ctr['amount']? $ctr['amount']: 0;
+            } else if ($ctr['status'] == 4) {
+                $return['order_cancel'] = $ctr['amount']? $ctr['amount']: 0;
+            }
+        }
+
+        // sum income
+        $sql_income = "select sum(b.item*b.price) as total_income, sum(item) as total_product
+                        from `order` a
+                        join order_detail b on a.id = b.pesanan_id
+                        where status = 1;";
+        $income = $this->db->query($sql_income)->row_array();
+
+        $return['total_income'] = $income['total_income'];
+        $return['total_product'] = $income['total_product'];
+
+        $sql_order = "select a.id as order_id, LPAD(a.id, 4, '0') as order_number, c.nama, a.date, a.status, b.price, sum(b.item*b.price) as total_price
+                        from `order` a
+                        join order_detail b on a.id = b.pesanan_id
+                        join user c on a.user_customer = c.id
+                        where a.status in (1,4)
+                        group by a.id ;";
+        $order = $this->db->query($sql_order)->result_array();
+
+        $return['order'] = $order;
+
+        return $return;
+    }
 }
