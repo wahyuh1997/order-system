@@ -211,7 +211,7 @@ class Order_model extends MY_Model
         $return['total_income'] = $income['total_income'];
         $return['total_product'] = $income['total_product'];
 
-        $sql_order = "select a.id as order_id, LPAD(a.id, 4, '0') as order_number, c.nama, a.date, a.status, b.price, sum(b.item*b.price) as total_price
+        $sql_order = "select a.id as order_id, LPAD(a.id, 4, '0') as order_number, c.nama, a.date, a.status, b.price, b.item, sum(b.item*b.price) as total_price
                         from `order` a
                         join order_detail b on a.id = b.pesanan_id
                         join user c on a.user_customer = c.id
