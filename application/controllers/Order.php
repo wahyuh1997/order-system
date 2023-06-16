@@ -11,7 +11,7 @@ class Order extends MY_Controller
     if (!isset($_SESSION['os_user'])) {
       redirect('login');
     }
-    $this->load->model('customer/Order_model', 'order');
+    $this->load->model('Customer/Order_model', 'order');
     $this->load->model('User_model', 'user');
   }
 

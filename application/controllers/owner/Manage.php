@@ -8,7 +8,7 @@ class Manage extends MY_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('owner/Menu_model', 'menu');
+    $this->load->model('Owner/Menu_model', 'menu');
   }
 
   /**

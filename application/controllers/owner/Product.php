@@ -9,7 +9,7 @@ class Product extends MY_Controller
   {
     parent::__construct();
 
-    $this->load->model('owner/Menu_model', 'menu');
+    $this->load->model('Owner/Menu_model', 'menu');
   }
 
   /**

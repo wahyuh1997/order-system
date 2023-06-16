@@ -8,7 +8,7 @@ class Profile extends MY_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('owner/Auth_model', 'auth');
+    $this->load->model('Owner/Auth_model', 'auth');
   }
 
   /**

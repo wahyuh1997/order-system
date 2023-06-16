@@ -15,7 +15,7 @@
       <div class="card-body text-dark-orange py-2">
         <div>
           <p class="mb-0 fw-bold">Tanggal Pesanan</p>
-          <span class="ms-3">13/05/2023</span>
+          <span class="ms-3"><?= date('d/m/Y'); ?></span>
         </div>
         <div>
           <p class="mb-0 fw-bold">Estimasi Pre-Order</p>
@@ -37,7 +37,7 @@
       <?php foreach ($cart_item as $cart) : ?>
         <div class="row g-0">
           <div class="col-3">
-            <img src="<?= base_url('assets/img/cake 1.png'); ?>." class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
+            <img src="<?= $cart['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $cart['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
           </div>
           <div class="col-9">
             <div class="card-body py-2">

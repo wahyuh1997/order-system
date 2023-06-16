@@ -8,7 +8,7 @@ class Login extends MY_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('customer/Auth_model', 'auth');
+    $this->load->model('Customer/Auth_model', 'auth');
   }
 
   public function index()
