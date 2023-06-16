@@ -170,7 +170,7 @@ class Order_model extends MY_Model
 
     $return = [
       'pre_order'     => $pre_order['is_preorder'],
-	'menu'		=> $menu['product_name'],
+	'product_name'		=> $menu['product_name'],
       'user'          => $user
     ];
 
