@@ -207,8 +207,8 @@ class Order_model extends MY_Model
     $sql_income = "select sum(b.item*b.price) as total_income, sum(item) as total_product
                         from `order` a
                         join order_detail b on a.id = b.pesanan_id
-                        and a.date between ? and ?
-                        where status = 1;";
+                        where status = 1
+												and a.date between ? and ?;";
     $income = $this->db->query($sql_income, [$start_date, $end_date])->row_array();
 
     $return['total_income'] = $income['total_income'];
