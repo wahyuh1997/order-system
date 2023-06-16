@@ -155,7 +155,7 @@ class Order_model extends MY_Model
     $pre_order = $this->menu_owner->pre_order();
 
     $sql = "
-                select d.nama, c.id as order_id, SUM(item) as item, LPAD(c.id, 4, '0') as order_number
+                select d.nama, a.product_name, c.id as order_id, SUM(item) as item, LPAD(c.id, 4, '0') as order_number
                 from menu a 
                 join order_detail b on a.id = b.menu_id
                 join `order` c on b.pesanan_id =c.id
