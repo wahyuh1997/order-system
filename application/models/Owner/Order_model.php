@@ -165,9 +165,12 @@ class Order_model extends MY_Model
         ";
     $user = $this->db->query($sql, [$menu_id])->result_array();
 
+	$menu = $this->db->get_where('menu', ['id' => $menu_id])->row_array();
+
 
     $return = [
       'pre_order'     => $pre_order['is_preorder'],
+	'menu'		=> $menu['product_name'],
       'user'          => $user
     ];
 
