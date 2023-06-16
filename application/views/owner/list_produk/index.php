@@ -14,7 +14,7 @@
         Status Penjualan
       </div>
       <div class="col-6 fw-bold text-dark-orange">
-        Pre-Order ON
+        Pre-Order <?= $data['is_preorder'] == 1 ? ' ON' : 'OFF'; ?>
       </div>
     </div>
   </section>

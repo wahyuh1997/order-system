@@ -45,7 +45,7 @@ function check_null_number($value)
 
 function currency_format($value)
 {
-  return number_format($value, 2, ".", ",");
+  return number_format($value, 0, ",", ".");
 }
 
 

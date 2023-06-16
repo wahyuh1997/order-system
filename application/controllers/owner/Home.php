@@ -16,11 +16,11 @@ class Home extends MY_Controller
    */
   public function index()
   {
-    $res = $this->menu->get_all_menu();
+    $res = $this->menu->pre_order();
 
     $data = [
       'title'       => 'Halaman Utama',
-      'is_preorder' => $res['data'][0]['is_preorder']
+      'is_preorder' => $res['is_preorder']
     ];
     $this->load_template('owner/home/index', $data);
   }

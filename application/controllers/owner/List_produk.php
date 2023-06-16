@@ -8,6 +8,7 @@ class List_produk extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('Owner/Order_model', 'order');
   }
 
   /**
@@ -15,10 +16,18 @@ class List_produk extends MY_Controller
    */
   public function index()
   {
-    $data = [
-      'title'     => 'List Produk Pesanan',
-    ];
-    $this->load_template('owner/list_produk/index', $data);
+    $res = $this->order->menu_order();
+
+    if ($res['status']) {
+      # code...
+      $data_view = [
+        'title'     => 'List Produk Pesanan',
+        'data'      => $res['data']
+      ];
+      $this->load_template('owner/list_produk/index', $data_view);
+    } else {
+      redirect('owner');
+    }
   }
 
   public function detail()

@@ -175,12 +175,9 @@ footer {
 		width: 441px;
 	}
 
-	body .navbar {
-		width: 441px;
-    margin: auto;
-	}
-
-	body .main-header {
+	body .main-header,
+  body .fixed-top .container,
+  body .navbar {
 		width: 441px;
     margin: auto;
 	}
