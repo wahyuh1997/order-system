@@ -30,10 +30,14 @@ class List_produk extends MY_Controller
     }
   }
 
-  public function detail()
+  public function detail($menu_id)
   {
+    $res = $this->order->get_order_by_menu($menu_id);
+
     $data = [
-      'title'     => 'Donat Coklat', // Get From Data Item Name
+      'title'     => 'Donat Coklat',
+      'data'      => $res['data']
+      // Get From Data Item Name
     ];
     $this->load_template('owner/list_produk/detail', $data);
   }

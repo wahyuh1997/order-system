@@ -17,7 +17,7 @@ class Report extends MY_Controller
   public function index()
   {
     $res = $this->order->report(date('Y-m-01'), date('Y-m-d'));
-    // trace($res);
+
     $data_view = [
       'title'     => 'Laporan Penjualan',
       'js'        => 'owner/report/core',
