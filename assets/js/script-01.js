@@ -4,11 +4,12 @@ $('.phone').mask('(0000) 0000-0000');
 
   $('#regCrudForm').on('submit', function(e) {
     e.preventDefault();
+    console.log();
     // init
     var url = $(this).attr('action');
-    var redUrl = $(this).data('redurl');
+    var redUrl = $('#regCrudForm').attr('data-redurl');
     var form_data = new FormData($(this)[0]);
-    
+    var text_data = $('#regCrudForm').attr('data-text') == undefined ? 'Pastikan Data Yang Anda Input Telah Sesuai' : $('#regCrudForm').attr('data-text')
     Swal.fire({
       icon: 'warning',
       title: 'Konfirmasi',
@@ -16,7 +17,7 @@ $('.phone').mask('(0000) 0000-0000');
       confirmButtonText: `OK`,
       cancelButtonText: `Batal`,
       reverseButtons: true,
-      text: 'Pastikan Data Yang Anda Input Telah Sesuai',
+      text: text_data,
     }).then((result) => {
       if (result.isConfirmed == false) {
         return false;

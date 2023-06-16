@@ -6,7 +6,7 @@
 <script src="<?= base_url('assets/js/sweetalert2.all.js'); ?>"></script>
 <script src="<?= base_url('assets/js/jquery-filestyle.js'); ?>"></script>
 <script src="<?= base_url('node_modules/bootstrap5-toggle/js/bootstrap5-toggle.jquery.js'); ?>"></script>
-<script src="<?= base_url('assets/js/script.js'); ?>"></script>
+<script src="<?= base_url('assets/js/script-01.js'); ?>"></script>
 <script>
   $(".jfilestyle").jfilestyle({
     text: "Unggah",
@@ -61,6 +61,23 @@
       }
     });
   });
+
+  if ($('.alert-login').length > 0) {
+    Swal.fire({
+      icon: 'success',
+      title: $('.alert-login').data('title'),
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  if ($('.alert-failed').length > 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal',
+      text: $('.alert-failed').data('title'),
+    })
+  }
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

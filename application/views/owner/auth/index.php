@@ -6,6 +6,10 @@
   </div>
 </nav>
 
+<?php if ($this->session->flashdata('alert-failed')) : ?>
+  <div class="alert-failed" data-title="<?= $this->session->flashdata('alert-failed'); ?>"></div>
+<?php endif; ?>
+
 <div class="container mt-2">
   <form id="regLogForm" data-redurl="<?= base_url('owner'); ?>" method="post">
     <section class="mt-4">

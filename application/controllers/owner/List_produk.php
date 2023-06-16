@@ -33,9 +33,9 @@ class List_produk extends MY_Controller
   public function detail($menu_id)
   {
     $res = $this->order->get_order_by_menu($menu_id);
-
+    // trace($res);
     $data = [
-      'title'     => 'Donat Coklat',
+      'title'     => $res['data']['user'][0]['product_name'],
       'data'      => $res['data']
       // Get From Data Item Name
     ];

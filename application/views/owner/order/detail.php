@@ -112,8 +112,8 @@
 
     <?php if ($data['status'] == '3') : ?>
       <section class="d-grid gap-2 mt-5 mb-3">
-        <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')" data-redurl='<?= base_url('owner/order/index/process'); ?>'>Konfirmasi</button>
-        <button type="submit" name="cancel" class="btn btn-secondary" onclick="actionButton('cancel')" data-redurl='<?= base_url('owner/order/index/history'); ?>'>Batalkan Pesanan</button>
+        <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')">Konfirmasi</button>
+        <button type="submit" name="cancel" class="btn btn-secondary" onclick="actionButton('cancel')">Batalkan Pesanan</button>
       </section>
     <?php elseif ($data['status'] == '2') : ?>
       <section class="d-grid gap-2 mt-5 mb-3">

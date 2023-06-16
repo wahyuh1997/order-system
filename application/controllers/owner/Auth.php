@@ -36,9 +36,15 @@ class Auth extends MY_Controller
           'email'     => $res['data']['email'],
           'phone'     => $res['data']['no_telepon'],
         ];
+
+        $this->session->set_flashdata('alert-login', $res['message']);
+        redirect('owner');
+      } else {
+        $this->session->set_flashdata('alert-failed', $res['message']);
+        redirect('owner/auth');
       }
 
-      echo json_encode($res);
+      // echo json_encode($res);
     }
   }
 

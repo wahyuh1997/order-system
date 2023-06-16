@@ -7,6 +7,10 @@
   </div>
 </nav>
 
+<?php if ($this->session->flashdata('alert-login')) : ?>
+  <div class="alert-login" data-title="<?= $this->session->flashdata('alert-login'); ?>"></div>
+<?php endif; ?>
+
 <div class="container mt-2">
   <section class="text-center mt-5">
     <h1 class="text-dark-orange mb-4">Selamat Datang</h1>
