@@ -44,7 +44,7 @@ class Menu_model extends MY_Model
         $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
 
         if (count($menu) < 1) {
-            return $this->return_failed('Menu is not available!', []);
+            return $this->return_failed('Menu tidak Ada!', []);
         }
 
         return $this->return_success('', $menu);
@@ -64,7 +64,7 @@ class Menu_model extends MY_Model
         $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
 
         if (count($menu) < 1) {
-            return $this->return_failed('Menu is not available!', []);
+            return $this->return_failed('Menu Tidak Ada!', []);
         }
 
         if (strlen($data['product_name']) < 1) {
@@ -81,7 +81,7 @@ class Menu_model extends MY_Model
 
         $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
 
-        return $this->return_success('Menu is Updated', $menu);
+        return $this->return_success('Menu sudah diubah', $menu);
     }
 
     function delete_menu($id_menu)
@@ -89,7 +89,7 @@ class Menu_model extends MY_Model
         $menu = $this->db->get_where('menu', ['id' => $id_menu])->row_array();
 
         if (count($menu) < 1) {
-            return $this->return_failed('Menu is not available!', []);
+            return $this->return_failed('Menu tidak Ada!', []);
         }
 
         $this->db->delete('menu', ['id' => $id_menu]);
@@ -103,7 +103,7 @@ class Menu_model extends MY_Model
         $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
 
         if (count($menu) < 1) {
-            return $this->return_failed('Menu is not available!', []);
+            return $this->return_failed('Menu tidak Ada!', []);
         }
 
         $this->db->set('is_available', $data['is_activate']);
