@@ -127,6 +127,14 @@ class Order_model extends MY_Model
     }
   }
 
+  function delete_order($order_id)
+  {
+    $this->db->delete('order',['id'=> $order_id]);
+    $this->db->delete('order_detail',['pesanan_id'=> $order_id]);
+
+    return $this->return_success('data berhasil dihapus',[]);
+  }
+
   // Menu Order
   function menu_order()
   {
