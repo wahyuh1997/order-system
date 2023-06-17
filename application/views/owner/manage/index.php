@@ -34,7 +34,7 @@
       <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="max-width: 540px; cursor: pointer;">
         <div class="row g-0">
           <div class="col-3">
-            <img src="<?= base_url('assets/img/product/' . $item['image']); ?>." class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">
+            <img src="<?= base_url('assets/img/product/' . $item['image']); ?>" class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">
           </div>
           <div class="col-9 align-items-center">
             <div class="card-body ps-1 py-1" style="height: 100%;">

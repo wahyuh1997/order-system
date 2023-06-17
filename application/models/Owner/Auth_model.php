@@ -44,7 +44,7 @@ class Auth_model extends MY_Model
     if (strlen($data['user_name']) < 1 || strlen($data['nama']) < 1 || strlen($data['password']) < 1) {
       return $this->return_failed('username, nama, dan password silahkan diisi!', []);
     }
-    
+
     if (strlen($data['password']) < 6) {
       return $this->return_failed('password min 6 characters', []);
     }

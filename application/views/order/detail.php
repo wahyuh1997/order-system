@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="fw-bold" role="navbar">
       <a href="<?= base_url('order'); ?>" class="text-light-orange d-inline me-3"><i class="fa-solid fa-arrow-left"></i></a>
-      <h6 class="d-inline-block text-dark-orange">Pesanan</h6>
+      <h6 class="d-inline-block text-dark-orange"><?= $title; ?></h6>
     </div>
   </div>
 </nav>

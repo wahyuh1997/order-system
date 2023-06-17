@@ -43,11 +43,9 @@ class Profile extends MY_Controller
       $res = $this->auth->edit_user($post);
 
       if ($res['status'] == true) {
-        $_SESSION['os_owner'] = [
-          'username'  => $post['user_name'],
-          'nama'      => $post['nama'],
-          'phone'     => $post['no_telepon']
-        ];
+        $_SESSION['os_user']['username']  = $post['user_name'];
+        $_SESSION['os_user']['nama']      = $post['nama'];
+        $_SESSION['os_user']['phone']     = $post['no_telepon'];
       }
 
       echo json_encode($res);
