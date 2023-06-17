@@ -67,8 +67,8 @@ class Menu_model extends MY_Model
             return $this->return_failed('Menu is not available!', []);
         }
 
-        if (strlen($data['product_name'] < 1)) {
-            return $this->return_failed('Menu Name must required!', []);
+        if (strlen($data['product_name']) < 1) {
+            return $this->return_failed('Nama Produk Wajib Di isi!', []);
         }
 
         $this->db->set('product_name', $data['product_name']);

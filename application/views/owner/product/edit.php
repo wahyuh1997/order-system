@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col-6">
           <div class="d-grid gap-2">
-            <a href="" class="btn btn-secondary">Batal</a>
+            <a href="<?= base_url('owner/product'); ?>" class="btn btn-secondary">Batal</a>
           </div>
         </div>
         <div class="col-6">
