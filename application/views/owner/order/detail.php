@@ -119,6 +119,10 @@
       <section class="d-grid gap-2 mt-5 mb-3">
         <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('finish')" data-redurl='<?= base_url('owner/order/index/history'); ?>'>Pesanan Selesai</button>
       </section>
+    <?php elseif ($data['status'] == '1' || $data['status'] == '4' || $data['status'] == '5') : ?>
+      <section class="d-grid gap-2 mt-5 mb-3">
+        <a href="<?= base_url('owner/order/delete/' . $data['id']); ?>" class="btn btn-orange del-sel" data-text="Apakah anda yakin akan mengapus pesanan ini ?" data-redurl='<?= base_url('owner/order/index/history'); ?>'>Hapus Pesanan Selesai</a>
+      </section>
     <?php endif; ?>
   </form>
 </div>

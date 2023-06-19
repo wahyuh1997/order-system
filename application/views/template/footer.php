@@ -20,16 +20,16 @@
     // init
     var url = $(this).attr('href');
     var redUrl = $(this).data('redurl');
-
+    var text_data = $('.del-sel').attr('data-text') == undefined ? 'Apakah anda yakin akan menghapus produk ini ?' : $('.del-sel').attr('data-text')
     // confirmation
     Swal.fire({
       icon: 'question',
-      title: 'Hapus Produk',
+      title: 'Hapus Data',
       showCancelButton: true,
-      confirmButtonText: `Hapus Produk`,
+      confirmButtonText: `Hapus Data`,
       cancelButtonText: 'Batal',
       reverseButtons: true,
-      text: 'Apakah anda yakin akan menghapus produk ini ?',
+      text: text_data,
     }).then((result) => {
       // check if confirmed
       if (result.isConfirmed) {

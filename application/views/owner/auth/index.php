@@ -18,7 +18,7 @@
 
         <div class="mb-3 text-start px-3">
           <label class="form-label fw-bold text-dark-orange">Nama Pengguna</label>
-          <input type="text" class="form-control" name="user_name" value="admin">
+          <input type="text" class="form-control" name="user_name" value="">
         </div>
         <div class="mb-3 text-start px-3">
           <label class="form-label fw-bold text-dark-orange">Kata Sandi</label>

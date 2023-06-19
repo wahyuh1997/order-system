@@ -31,7 +31,8 @@ class Order extends MY_Controller
       'new_data'      => $get_new['data'],
       'process_data'  => $get_process['data'],
       'history_data'  => $get_history['data'],
-      'type'          => $type
+      'type'          => $type,
+      'js'            => 'owner/order/js/core_index'
     ];
     $this->load_template('owner/order/index', $data);
   }
@@ -62,5 +63,10 @@ class Order extends MY_Controller
 
       echo json_encode($res);
     }
+  }
+
+  public function delete($id)
+  {
+    echo json_encode($this->order->delete_order($id));
   }
 }
