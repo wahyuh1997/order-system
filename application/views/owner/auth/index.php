@@ -29,7 +29,7 @@
         </div>
 
         <div class="d-grid gap-2 mt-5 px-3">
-          <button type="submit" class="btn btn-orange">Simpan</button>
+          <button type="submit" class="btn btn-orange">Masuk</button>
         </div>
       </div>
     </section>

@@ -17,18 +17,18 @@
   <form id="regCrudForm" data-redurl="<?= base_url('owner/product'); ?>" method="post">
     <section>
       <div class="mb-3">
-        <label for="product_name" class="form-label text-light-orange">Nama Produk</label>
-        <input type="text" class="form-control" id="product_name" name="product_name">
+        <label for="product_name" class="form-label text-light-orange">Nama Produk <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="product_name" name="product_name" required>
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label text-light-orange">Deskripsi</label>
-        <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+        <label for="description" class="form-label text-light-orange">Deskripsi <span class="text-danger">*</span></label>
+        <textarea class="form-control" rows="3" id="description" name="description" required></textarea>
       </div>
       <div class="mb-3">
-        <label for="price" class="form-label text-light-orange">Harga Produk</label>
+        <label for="price" class="form-label text-light-orange">Harga Produk <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Rp</span>
-          <input type="number" class="form-control" min="0" value="0" id="price" name="price">
+          <input type="number" class="form-control" min="0" value="0" id="price" name="price" required>
         </div>
       </div>
       <div class="mb-3">
@@ -38,7 +38,7 @@
         <a href="#" class="btn btn-sm btn-danger del-image d-grid gap-2 mt-2 d-none">Hapus Gambar</a>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label text-light-orange">Ketersediaan</label>
+        <label for="name" class="form-label text-light-orange">Ketersediaan <span class="text-danger">*</span></label>
         <div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_available" id="inlineRadio1" value="1" checked>

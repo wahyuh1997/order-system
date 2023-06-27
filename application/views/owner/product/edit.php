@@ -17,29 +17,30 @@
   <form id="regCrudForm" data-redurl="<?= base_url('owner/product'); ?>" method="post">
     <section>
       <div class="mb-3">
-        <label for="product_name" class="form-label text-light-orange">Nama Produk</label>
-        <input type="text" class="form-control" id="product_name" name="product_name" value="<?= $data['product_name']; ?>">
+        <label for="product_name" class="form-label text-light-orange">Nama Produk <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="product_name" name="product_name" value="<?= $data['product_name']; ?>" required>
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label text-light-orange">Deskripsi</label>
-        <textarea class="form-control" rows="3" id="description" name="description"><?= $data['description']; ?></textarea>
+        <label for="description" class="form-label text-light-orange">Deskripsi <span class="text-danger">*</span></label>
+        <textarea class="form-control" rows="3" id="description" name="description" required><?= $data['description']; ?></textarea>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label text-light-orange">Harga Produk</label>
+        <label for="name" class="form-label text-light-orange">Harga Produk <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Rp</span>
-          <input type="number" class="form-control" min="0" name="price" value="<?= $data['price']; ?>">
+          <input type="number" class="form-control" min="0" name="price" value="<?= $data['price']; ?>" required>
         </div>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label text-light-orange">Gambar Produk</label>
-        <input class="form-control form-control-sm upd-image" id="formFile" type="file" accept="image/*">
-        <img class="mt-2 mr-2 pic" src="<?= base_url('assets/img/product/' . $data['image']); ?>" style="width: 100%; display: block; height: 150px; cursor: pointer;">
+        <input class="form-control form-control-sm upd-image" id="formFile" name="image" type="file" accept="image/*">
+
+        <img class="mt-2 mr-2 pic" src="<?= base_url('assets/img/product/' . $data['image']); ?>" <?= $data['image'] == null ? ' style="display: none;"' : ' style="width: 100%; display: block; height: 150px; cursor: pointer;"'; ?>>
         <input type="hidden" name="tmp_image" value="<?= $data['image']; ?>">
-        <a href="#" class="btn btn-sm btn-danger del-image d-grid gap-2 mt-2">Hapus Gambar</a>
+        <a href="#" class="btn btn-sm btn-danger del-image d-grid gap-2 mt-2 <?= $data['image'] == null ? 'd-none' : null; ?>">Hapus Gambar</a>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label text-light-orange">Ketersediaan</label>
+        <label for="name" class="form-label text-light-orange">Ketersediaan <span class="text-danger">*</span></label>
         <div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_available" id="inlineRadio1" value="1" <?= $data['is_available'] == 1 ? 'checked' : ''; ?>>
