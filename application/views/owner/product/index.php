@@ -10,13 +10,13 @@
 
   <div class="main-header mt-2 px-2 pb-3">
     <div class="row">
-      <div class="col-8">
+      <div class="col-8 col-md-9">
         <div class="input-group rounded-2" style="box-shadow: 1px 2px #181818;">
           <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
           <input type="text" id="search" class="form-control" placeholder="Cari Produk">
         </div>
       </div>
-      <div class="col-4 my-auto px-0">
+      <div class="col-4 col-md-3 my-auto px-0">
         <a href="<?= base_url('owner/product/add'); ?>" class="btn btn-sm btn-orange rounded">Tambah Produk</a>
       </div>
     </div>
@@ -27,7 +27,7 @@
   <section>
     <?php foreach ($item as $item) : ?>
       <a href="<?= base_url('owner/product/detail/' . $item['id']); ?>" class="text-decoration-none">
-        <div class="card mb-3 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
+        <div class="card mb-3 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
           <div class="row g-0" style="height: 100%;">
             <div class="col-3 my-auto">
               <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; max-height: 88px;" alt="Cake 1">

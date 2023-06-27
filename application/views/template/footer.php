@@ -47,7 +47,7 @@
               text: 'Produk Berhasil Dihapus',
             }).then((result) => {
               if (result.isConfirmed) {
-                window.location.href = window.location.href;
+                window.location.href = redUrl;
               }
             });
           } else {

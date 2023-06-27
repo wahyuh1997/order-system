@@ -32,7 +32,7 @@
 
   <!-- Ringkasan Pesanan -->
   <section class="mt-3">
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3">
 
       <?php foreach ($cart_item as $cart) : ?>
         <div class="row g-0">

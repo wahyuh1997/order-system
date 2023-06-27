@@ -23,7 +23,7 @@
 
     <?php foreach ($data['menu'] as $item) : ?>
       <a href="<?= base_url('owner/list_produk/detail/' . $item['menu_id']); ?>" class="text-decoration-none">
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3">
           <div class="row g-0">
             <div class="col-3">
               <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; max-height: 88px;" alt="Cake 1">

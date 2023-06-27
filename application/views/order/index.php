@@ -31,7 +31,7 @@
               break;
           }; ?>
           <a href="<?= $link; ?>" class="text-decoration-none">
-            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+            <div class="card mt-3" style="box-shadow: 1px 2px #181818;">
               <div class="row g-0 text-light-orange">
                 <div class="col-3 text-center my-auto">
                   <i class="fa-solid fa-cart-shopping fa-3x"></i>
@@ -65,7 +65,7 @@
               break;
           }; ?>
           <a href="<?= base_url('order/confirm/' . $history['id']); ?>" class="text-decoration-none">
-            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+            <div class="card mt-3" style="box-shadow: 1px 2px #181818;">
               <div class="row g-0 text-light-orange">
                 <div class="col-3 text-center my-auto">
                   <i class="fa-solid fa-cart-shopping fa-3x"></i>

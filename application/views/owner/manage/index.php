@@ -31,7 +31,7 @@
   <section class="mt-3">
 
     <?php foreach ($item as $item) : ?>
-      <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="max-width: 540px; cursor: pointer;">
+      <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="cursor: pointer;">
         <div class="row g-0">
           <div class="col-3">
             <img src="<?= base_url('assets/img/product/' . $item['image']); ?>" class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">

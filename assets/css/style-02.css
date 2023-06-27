@@ -170,24 +170,24 @@ footer {
 /* End Of Footer Section */
 
 /* Media Query When Android to Desktop */
-@media (min-width: 442px) {
+@media (min-width: 642px) {
 	body {
-		width: 441px;
+		width: 640px;
 	}
 
 	body .main-header,
   body .fixed-top .container,
   body .navbar {
-		width: 441px;
+		width: 640px;
     margin: auto;
 	}
 
 	body footer {
-		width: 441px;
+		width: 640px;
 	}
 
 	body .bottom-cart {
-		width: 441px;
+		width: 640px;
 	}
 
   

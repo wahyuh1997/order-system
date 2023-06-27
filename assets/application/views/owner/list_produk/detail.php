@@ -10,7 +10,7 @@
 <div class="container my-2">
   <section class="mt-3">
     <?php foreach ($data['user'] as $user) : ?>
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card mb-3">
         <div class="card-body ps-1" style="height: 100%;">
           <div class="row mt-1">
             <div class="col-9 text-light-orange">

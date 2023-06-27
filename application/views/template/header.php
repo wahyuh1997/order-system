@@ -16,7 +16,7 @@
   <link href="<?= base_url('assets/css/daterangepicker.css'); ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/jquery-filestyle.css'); ?>" rel="stylesheet">
   <link href="<?= base_url('node_modules/bootstrap5-toggle/css/bootstrap5-toggle.css'); ?>" rel="stylesheet">
-  <link href="<?= base_url('assets/css/style-01.css'); ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/style-02.css'); ?>" rel="stylesheet">
 </head>
 
 <body>

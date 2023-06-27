@@ -19,7 +19,7 @@
       <?php if (count($cart_item) > 0) : ?>
         <?php foreach ($cart_item as $cart) : ?>
           <?php if ($item['id'] == $cart['menu_id']) : ?>
-            <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
+            <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
               <div class="row g-0">
                 <div class="col-3">
                   <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
@@ -59,7 +59,7 @@
           <?php endif; ?>
 
           <?php if (count($item_data) != count($cart_item) && $item['id'] != $cart['menu_id']) : ?>
-            <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
+            <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
               <div class="row g-0">
                 <div class="col-3">
                   <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
@@ -86,7 +86,7 @@
 
         <?php endforeach; ?>
       <?php elseif (isset($_SESSION['os_user'])) : ?>
-        <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
+        <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
           <div class="row g-0">
             <div class="col-3">
               <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
@@ -112,7 +112,7 @@
       <?php endif; ?>
 
       <?php if (!isset($_SESSION['os_user'])) : ?>
-        <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>" style="max-width: 540px;">
+        <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
           <div class="row g-0">
             <div class="col-3">
               <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">

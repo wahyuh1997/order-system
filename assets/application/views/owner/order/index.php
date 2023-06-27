@@ -20,7 +20,7 @@
       <?php if (count($new_data) > 0) : ?>
         <?php foreach ($new_data as $new) : ?>
           <a href="<?= base_url('owner/order/detail/' . $new['id']); ?>" class="text-decoration-none">
-            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+            <div class="card mt-3" style="box-shadow: 1px 2px #181818;">
               <div class="card-body">
                 <div class="row g-0 text-light-orange">
                   <div class="col-3 text-center my-auto">
@@ -48,7 +48,7 @@
       <?php if (count($process_data) > 0) : ?>
         <?php foreach ($process_data as $process) : ?>
           <a href="<?= base_url('owner/order/detail/' . $process['id']); ?>" class="text-decoration-none">
-            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+            <div class="card mt-3" style="box-shadow: 1px 2px #181818;">
               <div class="card-body">
                 <div class="row g-0 text-light-orange">
                   <div class="col-3 text-center my-auto">
@@ -75,7 +75,7 @@
       <?php if (count($history_data) > 0) : ?>
         <?php foreach ($history_data as $history) : ?>
           <a href="<?= base_url('owner/order/detail/' . $history['id']); ?>" class="text-decoration-none">
-            <div class="card mt-3" style="max-width: 540px; box-shadow: 1px 2px #181818;">
+            <div class="card mt-3" style="box-shadow: 1px 2px #181818;">
               <div class="card-body">
                 <div class="row g-0 text-light-orange">
                   <div class="col-3 text-center my-auto">

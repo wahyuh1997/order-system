@@ -14,16 +14,16 @@
         <img src="<?= base_url('assets/img/user.png'); ?>" alt="" style="margin-top: 3em;">
 
         <div class="mb-3 text-start px-3">
-          <label class="form-label fw-bold text-dark-orange">Nama</label>
-          <input type="text" class="form-control" name="nama" value="<?= $_SESSION['os_owner']['nama']; ?>">
+          <label class="form-label fw-bold text-dark-orange">Nama <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" name="nama" value="<?= $_SESSION['os_owner']['nama']; ?>" required>
         </div>
         <div class="mb-3 text-start px-3">
-          <label class="form-label fw-bold text-dark-orange">No. Telepon</label>
-          <input type="text" class="form-control phone" name="no_telepon" value="<?= $_SESSION['os_owner']['phone']; ?>">
+          <label class="form-label fw-bold text-dark-orange">No. Telepon <span class="text-danger">*</span></label>
+          <input type="text" class="form-control phone" name="no_telepon" value="<?= $_SESSION['os_owner']['phone']; ?>" required>
         </div>
         <div class="mb-3 text-start px-3">
-          <label class="form-label fw-bold text-dark-orange">Nama Pengguna</label>
-          <input type="text" class="form-control" name="user_name" value="<?= $_SESSION['os_owner']['username']; ?>">
+          <label class="form-label fw-bold text-dark-orange">Nama Pengguna <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" name="user_name" value="<?= $_SESSION['os_owner']['username']; ?>" required>
         </div>
         <div class="mb-3 text-start px-3">
           <label class="form-label fw-bold text-dark-orange">Kata Sandi</label>
