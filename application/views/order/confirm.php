@@ -130,13 +130,16 @@
         <div class="mt-3">
           <label for="formFile" class="text-dark-orange">Bukti Pembayaran</label>
           <input class="form-control form-control-sm upd-image" name="image" id="formFile" type="file" accept="image/*">
+          <?php if ($data['payment'] != null) : ?>
+            <img src="<?= base_url('assets/img/payment/' . $data['payment']); ?>" class="img-thumbnail img-trf" style="height: 13em;cursor: pointer">
+          <?php endif; ?>
         </div>
       </section>
     <?php elseif ($data['status'] == 2) : ?>
       <section>
         <div class="mt-3">
           <label for="formFile" class="text-dark-orange d-block">Bukti Pembayaran</label>
-          <img src="<?= base_url('assets/img/payment/' . $data['payment']); ?>" class="img-thumbnail" style="height: 13em;">
+          <img src="<?= base_url('assets/img/payment/' . $data['payment']); ?>" class="img-thumbnail img-trf" style="height: 13em;cursor: pointer;">
         </div>
       </section>
     <?php endif; ?>
@@ -147,4 +150,22 @@
       <a href="https://api.whatsapp.com/send?phone=<?= $wa_phone; ?>" target="_blank" class="btn btn-orange btn-wa">Hubungi Penjual via WhatsApp</a>
     </section>
   </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Bukti Transfer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
 </div>

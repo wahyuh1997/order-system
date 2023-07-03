@@ -8,4 +8,10 @@
     $('.btn-wa').removeClass('btn-orange').addClass('btn-secondary')
 
   });
+
+  $(document).on('click', '.img-trf', function() {
+    let img = $(this).attr('src');
+    $('#exampleModal .modal-body').html(`<img src="${img}" style="width: 100%;">`)
+    $('#exampleModal').modal('show');
+  });
 </script>

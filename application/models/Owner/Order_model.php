@@ -23,7 +23,7 @@ class Order_model extends MY_Model
   function get_accept_order()
   {
     $this->db->select("*, LPAD(id, 4, '0') as order_number");
-    $this->db->where_in('status', [0, 3]);
+    $this->db->where('status', 3);
     $this->db->order_by('id', 'DESC');
     $menu = $this->db->get('order')->result_array();
 
@@ -129,10 +129,10 @@ class Order_model extends MY_Model
 
   function delete_order($order_id)
   {
-    $this->db->delete('order',['id'=> $order_id]);
-    $this->db->delete('order_detail',['pesanan_id'=> $order_id]);
+    $this->db->delete('order', ['id' => $order_id]);
+    $this->db->delete('order_detail', ['pesanan_id' => $order_id]);
 
-    return $this->return_success('data berhasil dihapus',[]);
+    return $this->return_success('data berhasil dihapus', []);
   }
 
   // Menu Order
@@ -145,7 +145,7 @@ class Order_model extends MY_Model
             from menu a 
             join order_detail b on a.id = b.menu_id
             join `order` c on b.pesanan_id =c.id
-            where c.status = 3
+            where c.status = 2
             GROUP BY a.id
             ";
     $menu = $this->db->query($sql)->result_array();
@@ -173,12 +173,12 @@ class Order_model extends MY_Model
         ";
     $user = $this->db->query($sql, [$menu_id])->result_array();
 
-	$menu = $this->db->get_where('menu', ['id' => $menu_id])->row_array();
+    $menu = $this->db->get_where('menu', ['id' => $menu_id])->row_array();
 
 
     $return = [
       'pre_order'     => $pre_order['is_preorder'],
-	'product_name'		=> $menu['product_name'],
+      'product_name'    => $menu['product_name'],
       'user'          => $user
     ];
 
