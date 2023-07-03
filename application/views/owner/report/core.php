@@ -23,21 +23,12 @@
         end_date: $('#end_date').val(),
       },
       success: function(res) {
-        if (res.status == true) {
-          $('#total-income').html('Rp. ' + numberWithCommas(res.total_income));
-          $('#order-cancel').html('Rp. ' + numberWithCommas(res.order_cancel));
-          $('#order-success').html('Rp. ' + numberWithCommas(res.order_success));
-          $('#total-product').html('Rp. ' + numberWithCommas(res.total_product));
+        $('#total-income').html('Rp. ' + numberWithCommas(res.total_income));
+        $('#order-cancel').html('Rp. ' + numberWithCommas(res.order_cancel));
+        $('#order-success').html('Rp. ' + numberWithCommas(res.order_success));
+        $('#total-product').html('Rp. ' + numberWithCommas(res.total_product));
 
-          $('#load-view').html(res.html)
-        } else {
-          $('#total-income').html('Rp. 0');
-          $('#order-cancel').html('Rp. 0');
-          $('#order-success').html('Rp. 0');
-          $('#total-product').html('Rp. 0');
-
-          $('#load-view').empty()
-        }
+        $('#load-view').html(res.html)
       }
     })
   });
