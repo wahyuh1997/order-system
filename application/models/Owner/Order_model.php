@@ -193,8 +193,9 @@ class Order_model extends MY_Model
   {
     $return = [
       'order_success' => "0",
-      'order_failed' => "0",
-      'total_income' => "0",
+      'order_failed'  => "0",
+      'order_cancel'  => "0",
+      'total_income'  => "0",
       'total_product' => "0",
       'order' => [],
     ];

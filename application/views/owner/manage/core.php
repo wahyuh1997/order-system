@@ -6,7 +6,7 @@
 
       $('.form-check-input').each(function() {
         let id = $(this).data('id')
-        let is_avail = $(this).val() == 1 ? 0 : 1;
+        let is_avail = 1;
         $.ajax({
           url: 'manage/is_avail',
           method: 'POST',
@@ -17,7 +17,7 @@
             is_activate: is_avail
           },
           success: function(data) {
-            console.log('ok');
+            console.log(data.message);
           }
         })
       });
@@ -29,7 +29,7 @@
 
       $('.form-check-input').each(function() {
         let id = $(this).data('id')
-        let is_avail = $(this).val() == 1 ? 0 : 1;
+        let is_avail = 0;
         $.ajax({
           url: 'manage/is_avail',
           method: 'POST',
@@ -40,7 +40,7 @@
             is_activate: is_avail
           },
           success: function(data) {
-            console.log('ok');
+            console.log(data.message);
           }
         })
       });
@@ -79,6 +79,7 @@
 
     let id = $(this).data('id')
     let is_avail = $(this).val() == 1 ? 0 : 1;
+
     $.ajax({
       url: 'manage/is_avail',
       method: 'POST',
@@ -89,7 +90,7 @@
         is_activate: is_avail
       },
       success: function(data) {
-        console.log('ok');
+        console.log(data.message);
       }
     })
 
