@@ -72,8 +72,8 @@
                 </div>
                 <div class="col-9">
                   <div class="card-body">
-                    <h6 class="card-title mb-0">Pesanan <?= $history['order_number']; ?></h6>
-                    <small class="card-text"><?= $status_history; ?></small>
+                    <h6 class="card-title mb-0 <?= $history['status'] == 1 ? null : 'text-danger'; ?>">Pesanan <?= $history['order_number']; ?></h6>
+                    <small class="card-text <?= $history['status'] == 1 ? null : 'text-danger'; ?>"><?= $status_history; ?></small>
                   </div>
                 </div>
               </div>

@@ -24,11 +24,15 @@
       },
       success: function(res) {
         $('#total-income').html('Rp. ' + numberWithCommas(res.total_income));
-        $('#order-cancel').html('Rp. ' + numberWithCommas(res.order_cancel));
-        $('#order-success').html('Rp. ' + numberWithCommas(res.order_success));
-        $('#total-product').html('Rp. ' + numberWithCommas(res.total_product));
+        $('#order-cancel').html(numberWithCommas(res.order_cancel));
+        $('#order-success').html(numberWithCommas(res.order_success));
+        $('#total-product').html(numberWithCommas(res.total_product));
 
-        $('#load-view').html(res.html)
+        if (res.html != '') {
+          $('#load-view').html(res.html)
+        } else {
+          $('#load-view').html('<h5>Tidak Ada Laporan Penjualan</h5>')
+        }
       }
     })
   });

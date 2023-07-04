@@ -168,7 +168,7 @@ class Order_model extends MY_Model
                 join order_detail b on a.id = b.menu_id
                 join `order` c on b.pesanan_id =c.id
                 join user d on c.user_customer = d.id
-                where c.status = 3 and a.id = ?
+                where c.status = 2 and a.id = ?
                 GROUP BY c.user_customer
         ";
     $user = $this->db->query($sql, [$menu_id])->result_array();
@@ -223,8 +223,8 @@ class Order_model extends MY_Model
 												and a.date between ? and ?;";
     $income = $this->db->query($sql_income, [$start_date, $end_date])->row_array();
 
-    $return['total_income'] = $income['total_income'];
-    $return['total_product'] = $income['total_product'];
+    $return['total_income']  = $income['total_income'] == null ? 0 : $income['total_income'];
+    $return['total_product'] = $income['total_product'] == null ? 0 : $income['total_product'];
 
     $sql_order = "select a.id as order_id, LPAD(a.id, 4, '0') as order_number, c.nama, a.date, a.status, sum(b.item*b.price) as total_price
                         from `order` a

@@ -26,6 +26,7 @@
             <input type="password" class="form-control" id="password" name="password">
             <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
           </div>
+
         </div>
 
         <div class="d-grid gap-2 mt-5 px-3">

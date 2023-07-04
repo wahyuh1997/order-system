@@ -96,7 +96,7 @@
                         <i class="fa-solid fa-cart-shopping fa-3x"></i>
                       </div>
                       <div class="col-9">
-                        <div class="card-body <?= $history['status'] == 5 | $history['status'] == 4 ? 'text-danger' : null; ?>">
+                        <div class="card-body <?= $history['status'] == 5 || $history['status'] == 4 ? 'text-danger' : null; ?>">
                           <h6 class="card-title mb-0">Pesanan <?= $history['order_number']; ?></h6>
                           <small class="card-text">
                             <?= $history['status'] == 1 ? 'Selesai' : 'Dibatalkan'; ?>

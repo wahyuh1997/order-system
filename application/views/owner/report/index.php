@@ -46,8 +46,7 @@
 <div class="container" style="margin-top: 300px;">
   <div class="section mt-3">
     <div class="card">
-      <div id="load-view" class="card-body">
-
+      <div id="load-view" class="card-body text-center">
         <?php foreach ($data['order'] as $order) : ?>
           <!-- Loop Here -->
           <div class="row mb-3">
@@ -56,7 +55,7 @@
                 <div class="card-body px-0 mx-auto"><i class="fa-solid fa-cart-shopping fa-2x text-light-orange"></i></div>
               </div>
             </div>
-            <div class="col-6 text-dark-orange">
+            <div class="col-6 text-dark-orange text-start">
               <h6 class="card-title mb-0">Pesanan <?= $order['order_number']; ?></h6>
               <small class="card-text d-block"><?= date('d-M-Y', strtotime($order['date'])); ?></small>
               <small class="card-text"><?= $order['nama']; ?></small>

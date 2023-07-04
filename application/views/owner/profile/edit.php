@@ -31,6 +31,7 @@
             <input type="password" class="form-control" id="password" name="password">
             <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
           </div>
+          <small>(Kosongkan bila tidak ingin mengubah kata sandi)</small>
         </div>
 
         <div class="d-grid gap-2 mt-5 px-3">

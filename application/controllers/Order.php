@@ -114,7 +114,7 @@ class Order extends MY_Controller
         'title'     => 'Pesanan ' . $res['data']['order_number'],
         'data'      => $res['data'],
         'js'        => 'order/js/core_payment',
-        'wa_phone'  => $user['data']['no_telepon']
+        'wa_phone'  => str_replace('08', '628', $user['data']['no_telepon'])
         // 'item_data' => $res['data']['order_detail'],
       ];
       $this->load_template_cust('order/confirm', $data_view);
