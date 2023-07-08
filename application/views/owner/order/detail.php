@@ -10,13 +10,16 @@
 <div class="container my-2">
   <!-- Info Product -->
   <section class="mt-3">
-    <h5 class="text-dark-orange mb-4">
+    <h5 class="<?= $data['status'] == 4 ? 'text-danger' : 'text-dark-orange'; ?> mb-4">
       <?php switch ($data['status']) {
         case '3':
           $status = 'Pesanan Baru !';
           break;
         case '2':
           $status = 'Pesanan sedang diproses!';
+          break;
+        case '4':
+          $status = 'Pesanan Dibatalkan !';
           break;
         default:
           $status = 'Pesanan selesai!';
@@ -104,16 +107,31 @@
       </div>
     </div>
   </section>
-
   <!-- Order Button -->
   <form id="regCrudForm" data-redurl="<?= base_url('owner/order'); ?>" method="post">
     <input type="hidden" name="order_id" value="<?= $data['id']; ?>">
     <input type="hidden" name="type" value="">
 
+    <section id="view-desc-cancel" class="mt-3" <?= $data['status'] == 4 ? '' : 'style="display: none;"'; ?>>
+      <div class="row">
+        <div class="col-12">
+          <label for="" class="text-dark-orange">Deskripsi Pembatalan Pesanan</label>
+          <textarea name="desc" id="desc" class="form-control" cols="30" rows="3" <?= $data['status'] == 4 ? 'readonly' : ''; ?>><?= $data['desc']; ?></textarea>
+        </div>
+      </div>
+    </section>
+
+
+
     <?php if ($data['status'] == '3') : ?>
-      <section class="d-grid gap-2 mt-5 mb-3">
-        <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')">Konfirmasi</button>
-        <button type="submit" name="cancel" class="btn btn-secondary" onclick="actionButton('cancel')">Batalkan Pesanan</button>
+      <section class="mt-5 mb-3">
+        <div id="confirm-section" class="d-grid gap-2">
+          <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')">Konfirmasi</button>
+          <button type="button" id="btn-cancel-order" class="btn btn-secondary">Batalkan Pesanan</button>
+        </div>
+        <div id="cancel-section" class="d-grid gap-2 d-none">
+          <button type="submit" id="btn-cancel" name="cancel" class="btn btn-orange" onclick="actionButton('cancel')" disabled>Simpan</button>
+        </div>
       </section>
     <?php elseif ($data['status'] == '2') : ?>
       <section class="d-grid gap-2 mt-5 mb-3">

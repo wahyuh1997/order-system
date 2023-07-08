@@ -66,7 +66,7 @@
           $status = 'Menunggu restoran mengkonfirmasi pesanan anda!';
           break;
         default:
-          $status = 'Pesanan anda dibatalkan karena produk tidak tersedia';
+          $status = 'Pesanan anda dibatalkan karena ' . $data['desc'];
           # code...
           break;
       }; ?>
@@ -124,7 +124,7 @@
   </section>
 
   <form method="post" enctype="multipart/form-data">
-
+    <input type="hidden" name="order_id" value="<?= $data['id']; ?>">
     <?php if ($data['status'] == 3) : ?>
       <section>
         <div class="mt-3">

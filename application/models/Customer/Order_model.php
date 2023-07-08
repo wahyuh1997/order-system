@@ -82,9 +82,9 @@ class Order_model extends MY_Model
 
         $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-        if ($order['status'] != 0) {
-            return $this->return_failed('Please contact Admin!', []);
-        }
+        // if ($order['status'] != 0 && ) {
+        //     return $this->return_failed('Please contact Admin!', []);
+        // }
 
         $this->db->set('status', 3);
         $this->db->set('payment', $data['payment']);

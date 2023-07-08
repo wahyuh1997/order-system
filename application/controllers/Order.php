@@ -119,8 +119,6 @@ class Order extends MY_Controller
       ];
       $this->load_template_cust('order/confirm', $data_view);
     } else {
-      $post['order_id'] = $id;
-
       // check if the image input exist
       $config = [
         'allowed_types' => '*',
@@ -141,7 +139,7 @@ class Order extends MY_Controller
       }
 
       $this->order->payment_order($post);
-      redirect('order/confirm');
+      redirect('order/confirm/' . $id);
     }
   }
 }

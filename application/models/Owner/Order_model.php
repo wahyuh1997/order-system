@@ -95,6 +95,7 @@ class Order_model extends MY_Model
     // }
 
     $this->db->set('status', 4);
+    $this->db->set('desc', $data['desc']);
     $this->db->where(['id' => $order['id']]);
     $this->db->update('order');
 
