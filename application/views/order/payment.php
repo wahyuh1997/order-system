@@ -47,7 +47,8 @@
     </div>
   </section>
 
-  <form method="post" enctype="multipart/form-data">
+  <form id="frmsubmit" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="type">
     <!-- Transfer Info -->
     <section class="mt-3">
       <h6 class="mb-0 text-dark-orange">Metode Pembayaran</h6>
@@ -83,7 +84,8 @@
 
     <!-- Order Button -->
     <section class="d-grid gap-2 mt-2">
-      <button type="submit" class="btn btn-orange" name="submit" disabled>Bayar</button>
+      <button type="submit" id="btn-submit-order" class="btn btn-orange" name="submit" disabled>Bayar</button>
+      <a href="<?= base_url('order/self_canceled/' . $this->uri->segment(3)); ?>" data-redurl='<?= base_url('order'); ?>' id="btn-cancel-order" class="btn btn-secondary">Batalkan Pesanan</a>
     </section>
   </form>
 </div>

@@ -73,7 +73,6 @@ class Order extends MY_Controller
       $this->load_template_cust('order/payment', $data);
     } else {
       $post['order_id'] = $id;
-
       // check if the image input exist
       $config = [
         'allowed_types' => '*',
@@ -141,5 +140,10 @@ class Order extends MY_Controller
       $this->order->payment_order($post);
       redirect('order/confirm/' . $id);
     }
+  }
+
+  public function self_canceled($id)
+  {
+    echo json_encode($this->order->self_canceled($id));
   }
 }

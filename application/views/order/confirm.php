@@ -65,6 +65,9 @@
         case '3':
           $status = 'Menunggu restoran mengkonfirmasi pesanan anda!';
           break;
+        case '6':
+          $status = 'Anda membatalkan pesanan';
+          break;
         default:
           $status = 'Pesanan anda dibatalkan karena ' . $data['desc'];
           # code...

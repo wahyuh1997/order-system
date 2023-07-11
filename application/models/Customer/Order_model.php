@@ -97,6 +97,29 @@ class Order_model extends MY_Model
         return $this->return_success('Payment is inserted!', $order);
     }
 
+    function self_canceled($order_id)
+    {
+
+        /* 
+            Cannot update the status payment if used this way, please fix it.   
+        */
+
+        $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
+
+        // if ($order['status'] != 0 && ) {
+        //     return $this->return_failed('Please contact Admin!', []);
+        // }
+
+        $this->db->set('status', 6);
+        $this->db->where(['id' => $order_id]);
+        $this->db->update('order');
+
+        $this->db->select("*, LPAD(id, 4, '0') as order_number");
+        $order = $this->db->get_where('order', ['id' => $order_id])->row_array();
+
+        return $this->return_success('Anda membatalkan pesanan ini !', $order);
+    }
+
     // $data = [
     //     'customer_id' => 
     //     'menu_id' => 

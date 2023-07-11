@@ -15,8 +15,6 @@
   /* Delete Function */
   $(document).on('click', '.del-sel', function(e) {
     e.preventDefault();
-
-
     // init
     var url = $(this).attr('href');
     var redUrl = $(this).data('redurl');

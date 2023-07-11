@@ -3,8 +3,7 @@ $('.phone').mask('(0000) 0000-0000');
   $('.order-toggle').bootstrapToggle();
 
   $('#regCrudForm').on('submit', function(e) {
-    e.preventDefault();
-    console.log();
+    e.preventDefault();  
     // init
     var url = $(this).attr('action');
     var redUrl = $('#regCrudForm').attr('data-redurl');
