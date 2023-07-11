@@ -25,6 +25,13 @@ class Menu extends MY_Controller
       $cart['data'] = [];
     }
 
+    for ($i = 0; $i < count($res['data']['menu']); $i++) {
+      foreach ($cart['data'] as $key => $value) {
+        if ($res['data']['menu'][$i]['id'] == $value['menu_id']) {
+          $res['data']['menu'][$i]['is_cart'] = 1;
+        }
+      }
+    }
 
     $data = [
       'title'     => 'Home',
@@ -49,6 +56,14 @@ class Menu extends MY_Controller
       $cart = $this->order->get_cart($_SESSION['os_user']['id']);
     } else {
       $cart['data'] = [];
+    }
+
+    for ($i = 0; $i < count($res['data']['menu']); $i++) {
+      foreach ($cart['data'] as $key => $value) {
+        if ($res['data']['menu'][$i]['id'] == $value['menu_id']) {
+          $res['data']['menu'][$i]['is_cart'] = 1;
+        }
+      }
     }
 
     $data_view['item']      = $res['data']['menu'];

@@ -36,8 +36,8 @@
 
       <?php foreach ($cart_item as $cart) : ?>
         <div class="row g-0">
-          <div class="col-3">
-            <img src="<?= $cart['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $cart['image']; ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
+          <div class="col-3 pe-0">
+            <img src="<?= $cart['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $cart['image']; ?>" class="img-fluid rounded-start" style="height: 5m; width: 100%;" alt="Cake 1">
           </div>
           <div class="col-9">
             <div class="card-body py-2">
