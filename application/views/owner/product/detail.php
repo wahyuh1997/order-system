@@ -15,7 +15,7 @@
   <div class="card">
     <div class="card-body text-light-orange">
       <h6 class="mb-0 text-light-orange fw-bold"><?= $data['product_name']; ?></h6>
-      <img src="<?= $data['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/' . $data['image']); ?>" class="img-fluid rounded-start" style="height: 100%;" alt="Cake 1">
+      <img src="<?= $data['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/' . $data['image']); ?>" class="img-fluid rounded-start" style="width: 100%; height: 25em;" alt="Cake 1">
 
       <div class="mb-3">
         <p class="mb-0 text-light-orange fw-bold">Nama Produk</p>

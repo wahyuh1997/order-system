@@ -63,11 +63,13 @@ class Order extends MY_Controller
   public function payment($id)
   {
     $post = $this->input->post(null, true);
+    $res  = $this->order->detail_order($id);
 
     if (count($post) == 0) {
       # code...
       $data = [
         'title'     => 'Pembayaran',
+        'data'      => $res['data'],
         'js'        => 'order/js/core_payment'
       ];
       $this->load_template_cust('order/payment', $data);

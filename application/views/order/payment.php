@@ -15,7 +15,7 @@
       <div class="card-body text-dark-orange py-2">
         <div>
           <p class="mb-0 fw-bold">Tanggal Pesanan</p>
-          <span class="ms-3">13/05/2023</span>
+          <span class="ms-3"><?= date('d/m/Y', strtotime($data['date'])); ?></span>
         </div>
         <div>
           <p class="mb-0 fw-bold">Estimasi Pre-Order</p>

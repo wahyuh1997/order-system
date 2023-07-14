@@ -59,7 +59,7 @@
             </div>
             <div class="col-9">
               <div class="card-body py-2">
-                <h6 class="card-title text-dark-orange">Brownies Coklat</h6>
+                <h6 class="card-title text-dark-orange"><?= $item['product_name']; ?></h6>
                 <div class="row">
                   <div class="col-5 my-auto">
                     <h6 class="card-text text-dark-orange">x<?= $item['item']; ?></h6>
