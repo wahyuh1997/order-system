@@ -35,42 +35,44 @@
     <div class="card mb-3">
 
       <?php foreach ($cart_item as $cart) : ?>
-        <div class="row g-0">
-          <div class="col-3 pe-0">
-            <img src="<?= $cart['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $cart['image']; ?>" class="img-fluid rounded-start" style="height: 5m; width: 100%;" alt="Cake 1">
-          </div>
-          <div class="col-9">
-            <div class="card-body py-2">
-              <h6 class="card-title text-dark-orange"><?= $cart['product_name']; ?></h6>
-              <div class="row">
-                <div class="col-5 my-auto">
-                  <h6 class="card-text text-dark-orange">Rp. <?= number_format($cart['price'], '0', ',', '.'); ?></h6>
-                </div>
-                <div class="col-7 ps-0">
-                  <div class="row">
-                    <div class="col-2 offset-1 px-0 text-center my-auto">
-                      <button class="btn btn-sm btn-outline-orange rounded btn-minus">
-                        <i class="fa-solid fa-minus fa-xs"></i>
-                      </button>
-                    </div>
-                    <div class="col-4 px-1">
-                      <input type="number" min="0" class="form-control inp-qty" data-id="<?= $cart['menu_id']; ?>" data-price="<?= $cart['price']; ?>" value="<?= $cart['item']; ?>">
-                    </div>
-                    <div class="col-2 px-0 text-center my-auto">
-                      <button class="btn btn-sm btn-outline-orange btn-round btn-add">
-                        <i class="fa-solid fa-plus fa-xs"></i>
-                      </button>
-                    </div>
-                    <div class="col-3 px-0 text-center my-auto">
-                      <button type="button" class="btn btn-sm btn-outline-orange btn-round btn-del" data-id="<?= $cart['menu_id']; ?>">
-                        <i class="fa-solid fa-trash fa-xs"></i>
-                      </button>
+        <div class="card-body px-2 py-2" style="border-bottom: 0.2px solid grey;">
+          <div class="row g-0 ">
+            <div class="col-3 pe-0">
+              <img src="<?= $cart['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $cart['image']; ?>" class="img-fluid rounded-start img-thumbnail" style="height: 6rem; width: 100%;" alt="Cake 1">
+            </div>
+            <div class="col-9">
+              <div class="card-body py-2">
+                <h6 class="card-title text-dark-orange"><?= $cart['product_name']; ?></h6>
+                <div class="row">
+                  <div class="col-5 my-auto">
+                    <h6 class="card-text text-dark-orange">Rp. <?= number_format($cart['price'], '0', ',', '.'); ?></h6>
+                  </div>
+                  <div class="col-7 ps-0">
+                    <div class="row">
+                      <div class="col-2 offset-1 px-0 text-center my-auto">
+                        <button class="btn btn-sm btn-outline-orange rounded btn-minus">
+                          <i class="fa-solid fa-minus fa-xs"></i>
+                        </button>
+                      </div>
+                      <div class="col-4 px-1">
+                        <input type="number" min="0" class="form-control inp-qty" data-id="<?= $cart['menu_id']; ?>" data-price="<?= $cart['price']; ?>" value="<?= $cart['item']; ?>">
+                      </div>
+                      <div class="col-2 px-0 text-center my-auto">
+                        <button class="btn btn-sm btn-outline-orange btn-round btn-add">
+                          <i class="fa-solid fa-plus fa-xs"></i>
+                        </button>
+                      </div>
+                      <div class="col-3 px-0 text-center my-auto">
+                        <button type="button" class="btn btn-sm btn-outline-orange btn-round btn-del" data-id="<?= $cart['menu_id']; ?>">
+                          <i class="fa-solid fa-trash fa-xs"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
+  
                 </div>
-
+  
               </div>
-
             </div>
           </div>
         </div>

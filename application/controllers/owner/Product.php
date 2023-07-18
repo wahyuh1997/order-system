@@ -119,10 +119,7 @@ class Product extends MY_Controller
           $data_image = $this->upload->data();
           $fileName = $data_image['file_name'];
           // delete the tmp image
-          if ($res['data']['image'] != null) {
-            # code...
-            unlink('./assets/img/product/' . $res['data']['image']);
-          }
+          unlink('./assets/img/product/' . $res['data']['image']);
           $post['image'] = $fileName;
         }
 

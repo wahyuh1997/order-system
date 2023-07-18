@@ -23,12 +23,12 @@
     <?php if (count($data['menu']) > 0) : ?>
       <?php foreach ($data['menu'] as $item) : ?>
         <a href="<?= base_url('owner/list_produk/detail/' . $item['menu_id']); ?>" class="text-decoration-none">
-          <div class="card mb-3">
+          <div class="card mb-2">
             <div class="row g-0">
-              <div class="col-3">
-                <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; max-height: 88px;" alt="Cake 1">
+              <div class="col-4">
+                <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; height: 6rem;" alt="Cake 1">
               </div>
-              <div class="col-9 align-items-center">
+              <div class="col-8 align-items-center">
                 <div class="card-body ps-1" style="height: 100%;">
                   <div class="row mt-2">
                     <div class="col-9">

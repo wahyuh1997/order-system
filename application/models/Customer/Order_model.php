@@ -66,7 +66,7 @@ class Order_model extends MY_Model
 
         $return = ['order_id' => $order_id];
 
-        return $this->return_success('order is added', $return);
+        return $this->return_success('pesanan berhasil ditambahkan', $return);
     }
 
     // $data = [
@@ -94,7 +94,7 @@ class Order_model extends MY_Model
         $this->db->select("*, LPAD(id, 4, '0') as order_number");
         $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-        return $this->return_success('Payment is inserted!', $order);
+        return $this->return_success('Pembayaran berhasil!', $order);
     }
 
     function self_canceled($order_id)

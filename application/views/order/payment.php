@@ -40,7 +40,7 @@
             Total Pembayaran
           </div>
           <div class="col-6 text-end">
-            Rp. 28,000
+            Rp. <?= number_format($total_price, 0, ',', '.'); ?>
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@
           if (textParse.status == true) {
             Swal.fire({
               icon: 'success',
-              title: "Success",
+              title: "Berhasil",
               confirmButtonText: `OK`,
               text: 'Produk Berhasil Dihapus',
             }).then((result) => {

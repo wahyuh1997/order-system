@@ -22,8 +22,8 @@
             <?php if ($item['id'] == $cart['menu_id']) : ?>
               <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
                 <div class="row g-0" style="height: 100%;">
-                  <div class="col-3">
-                    <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; height: 7em;" alt="Cake 1">
+                  <div class="col-3 p-1">
+                    <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid img-thumbnail" style="width: 100%; height: 7em;" alt="Cake 1">
                   </div>
                   <div class="col-9">
                     <div class="card-body py-2">
@@ -64,8 +64,8 @@
         <?php if (!isset($item['is_cart'])) : ?>
           <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
             <div class="row g-0" style="height: 100%;">
-              <div class="col-3">
-                <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; height: 7em;" alt="Cake 1">
+              <div class="col-3 p-1">
+                <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid img-thumbnail" style="width: 100%; height: 7em;" alt="Cake 1">
               </div>
               <div class="col-9">
                 <div class="card-body py-2">
@@ -89,8 +89,8 @@
       <?php elseif (isset($_SESSION['os_user'])) : ?>
         <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
           <div class="row g-0" style="height: 100%;">
-            <div class="col-3">
-              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; height: 7em;" alt="Cake 1">
+            <div class="col-3 p-1">
+              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid img-thumbnail" style="width: 100%; height: 7em;" alt="Cake 1">
             </div>
             <div class="col-9">
               <div class="card-body py-2">
@@ -115,8 +115,8 @@
       <?php if (!isset($_SESSION['os_user'])) : ?>
         <div class="card mb-2 <?= $item['is_available'] == 0 ? 'not-avail' : ''; ?>">
           <div class="row g-0" style="height: 100%;">
-            <div class="col-3">
-              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid" style="width: 100%; height: 7em;" alt="Cake 1">
+            <div class="col-3 p-1">
+              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid img-thumbnail" style="width: 100%; height: 7em;" alt="Cake 1">
             </div>
             <div class="col-9">
               <div class="card-body py-2">

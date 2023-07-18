@@ -67,6 +67,7 @@ class Order extends MY_Controller
 
   public function delete($id)
   {
-    echo json_encode($this->order->delete_order($id));
+    $res = $this->order->delete_order($id);
+    echo json_encode($res);
   }
 }

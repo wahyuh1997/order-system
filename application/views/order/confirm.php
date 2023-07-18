@@ -81,12 +81,12 @@
   <!-- Ringkasan Pesanan -->
   <section class="mt-3">
     <h6 class="text-dark-orange">Pesanan</h6>
-    <?php foreach ($data['order_detail'] as $item) : ?>
-      <div class="card border-0">
-        <div class="card-body p-0">
-          <div class="row g-0 border-bottom mb-2">
+    <div class="card">
+      <div class="card-body pt-2 pb-0 px-2">
+          <?php foreach ($data['order_detail'] as $item) : ?>
+          <div class="row g-0">
             <div class="col-3">
-              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start" style="width: 100%;" height="70" alt="Cake 1">
+              <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start img-thumbnail" style="width: 100%; height: 6rem;" alt="Cake 1">
             </div>
             <div class="col-9">
               <div class="card-body py-2">
@@ -102,11 +102,12 @@
               </div>
             </div>
           </div>
+          <hr class="my-2">
+          <?php
+            $total_price[] = $item['price_total'];
+          endforeach; ?>
         </div>
       </div>
-    <?php
-      $total_price[] = $item['price_total'];
-    endforeach; ?>
   </section>
 
   <!-- Payment Info -->

@@ -22,7 +22,7 @@
               $link = base_url('order/payment/' . $process['id']);
               break;
             case '2':
-              $status_process = 'Process';
+              $status_process = 'Proses';
               $link = base_url('order/confirm/' . $process['id']);
               break;
             default:

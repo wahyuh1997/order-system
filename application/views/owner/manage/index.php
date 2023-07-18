@@ -33,10 +33,10 @@
     <?php foreach ($item as $item) : ?>
       <div class="card mb-2 <?= $item['is_available'] == 1 ? 'active' : ''; ?>" style="cursor: pointer;">
         <div class="row g-0">
-          <div class="col-3">
-            <img src="<?= base_url('assets/img/product/' . $item['image']); ?>" class="img-fluid rounded-start" style="filter: grayscale(100%); width: 100%;" alt="Cake 1">
+          <div class="col-4 p-2">
+            <img src="<?= base_url('assets/img/product/' . $item['image']); ?>" class="img-fluid rounded-start img-thumbnail" style="filter: grayscale(100%); width: 100%; height: 7rem;" alt="Cake 1">
           </div>
-          <div class="col-9 align-items-center">
+          <div class="col-8 align-items-center">
             <div class="card-body ps-1 py-1" style="height: 100%;">
               <div class="row mt-2">
                 <div class="col-10">

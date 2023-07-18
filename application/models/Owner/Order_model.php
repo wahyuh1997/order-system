@@ -66,7 +66,7 @@ class Order_model extends MY_Model
     $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
     if ($order['status'] != 3) {
-      return $this->return_failed('Order not Accepted', []);
+      return $this->return_failed('Pesanan Dibatalkan', []);
     }
 
     $this->db->set('status', 2);
@@ -76,7 +76,7 @@ class Order_model extends MY_Model
     $this->db->select("*, LPAD(id, 4, '0') as order_number");
     $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-    return $this->return_success('Order is Accepted!', $order);
+    return $this->return_success('Pesanan dikonfirmasi!', $order);
   }
 
   // $data = [
@@ -102,7 +102,7 @@ class Order_model extends MY_Model
     $this->db->select("*, LPAD(id, 4, '0') as order_number");
     $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-    return $this->return_success('Order is Rejected!', $order);
+    return $this->return_success('Pesanan dibatalkan', $order);
   }
 
   // $data = [
@@ -122,9 +122,9 @@ class Order_model extends MY_Model
       $this->db->select("*, LPAD(id, 4, '0') as order_number");
       $order = $this->db->get_where('order', ['id' => $data['order_id']])->row_array();
 
-      return $this->return_success('Order is Completed!', $order);
+      return $this->return_success('Pesanan selesai', $order);
     } else {
-      return $this->return_failed('Unpaid order', []);
+      return $this->return_failed('Pesanan belum dibayar', []);
     }
   }
 

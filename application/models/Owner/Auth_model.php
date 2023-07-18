@@ -74,7 +74,7 @@ class Auth_model extends MY_Model
     $user = $this->db->get_where('user', ['id' => $data['id']])->row_array();
 
     if (count($user) < 1) {
-      return $this->return_failed('User is not available!', []);
+      return $this->return_failed('User tidak tersedia!', []);
     }
 
     if (strlen($data['user_name']) < 1) {

@@ -65,12 +65,17 @@ class Order extends MY_Controller
     $post = $this->input->post(null, true);
     $res  = $this->order->detail_order($id);
 
+    foreach ($res['data']['order_detail'] as $detail) {
+      $total_price[] = $detail['price_total'];
+    }
+
     if (count($post) == 0) {
       # code...
       $data = [
-        'title'     => 'Pembayaran',
-        'data'      => $res['data'],
-        'js'        => 'order/js/core_payment'
+        'title'       => 'Pembayaran',
+        'data'        => $res['data'],
+        'total_price' => array_sum($total_price),
+        'js'          => 'order/js/core_payment',
       ];
       $this->load_template_cust('order/payment', $data);
     } else {
