@@ -14,15 +14,19 @@
       <?php switch ($data['status']) {
         case '3':
           $status = 'Pesanan Baru !';
+          $type = 'process';
           break;
         case '2':
           $status = 'Pesanan sedang diproses!';
+          $type = 'history';
           break;
         case '4':
           $status = 'Pesanan Dibatalkan !';
+          $type = 'history';
           break;
         default:
           $status = 'Pesanan selesai!';
+          $type = 'history';
           break;
       }; ?>
       <?= $status; ?>
@@ -75,7 +79,7 @@
           </div>
         </div>
       </div>
-      
+
     <?php
       $total_price[] = $item['price_total'];
     endforeach; ?>
@@ -109,7 +113,7 @@
     </div>
   </section>
   <!-- Order Button -->
-  <form id="regCrudForm" data-redurl="<?= base_url('owner/order'); ?>" method="post">
+  <form id="regCrudForm" data-redurl="<?= base_url('owner/order/index/' . $type); ?>" method="post">
     <input type="hidden" name="order_id" value="<?= $data['id']; ?>">
     <input type="hidden" name="type" value="">
 

@@ -4,7 +4,7 @@
   }
 
   $(document).on('click', 'button[name="confirm"]', function() {
-    $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/process'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
+    $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
   });
   $(document).on('click', 'button[name="cancel"]', function() {
     $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', 'Anda yakin ingin membatalkan pesanan ini ?');
@@ -27,7 +27,7 @@
 
   $(document).on('click', '.img-payment', function() {
     let img = $(this).attr('src')
-    
+
     $('#exampleModal .modal-body').html(`<img src="${img}" class="img-thumbnail" style="width: 100%;">`);
     $('#exampleModal').modal('show');
   })
