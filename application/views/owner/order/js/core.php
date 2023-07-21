@@ -6,6 +6,9 @@
   $(document).on('click', 'button[name="confirm"]', function() {
     $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
   });
+  $(document).on('click', '#btn-cancel', function() {
+    $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
+  });
   $(document).on('click', 'button[name="cancel"]', function() {
     $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', 'Anda yakin ingin membatalkan pesanan ini ?');
   });
