@@ -47,7 +47,7 @@
           if (textParse.status == true) {
             Swal.fire({
               icon: 'success',
-              title: "Success",
+              title: "Berhasil",
               confirmButtonText: `OK`,
               text: 'Anda membatalkan pesanan ini !',
             }).then((result) => {

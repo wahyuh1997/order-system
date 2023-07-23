@@ -53,7 +53,7 @@
 
   function delete_order(id) {
     $.ajax({
-      url: '<?= base_url('owner//order/delete/') ?>' + id,
+      url: '<?= base_url('owner/order/delete/') ?>' + id,
       method: 'GET',
       dataType: 'JSON',
       async: true,

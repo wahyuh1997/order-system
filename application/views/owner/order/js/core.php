@@ -3,7 +3,10 @@
     $('input[name="type"]').val(params)
   }
 
-  $(document).on('click', 'button[name="confirm"]', function() {
+  $(document).on('click', '#btn-confirm', function() {
+    $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/process'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
+  });
+  $(document).on('click', '#btn-finish', function() {
     $('#regCrudForm').attr('data-redurl', '<?= base_url('owner/order/index/history'); ?>').removeAttr('data-text').attr('data-text', $(this).data('text'));
   });
   $(document).on('click', '#btn-cancel', function() {

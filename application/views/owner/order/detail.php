@@ -131,7 +131,7 @@
     <?php if ($data['status'] == '3') : ?>
       <section class="mt-5 mb-3">
         <div id="confirm-section" class="d-grid gap-2">
-          <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')" data-text="Anda yakin ingin konfirmasi pesanan ini ?">Konfirmasi</button>
+          <button type="submit" id="btn-confirm" name="confirm" class="btn btn-orange" onclick="actionButton('confirm')" data-text="Anda yakin ingin konfirmasi pesanan ini ?">Konfirmasi</button>
           <button type="button" id="btn-cancel-order" class="btn btn-secondary">Batalkan Pesanan</button>
         </div>
         <div id="cancel-section" class="d-grid gap-2 d-none">
@@ -140,7 +140,7 @@
       </section>
     <?php elseif ($data['status'] == '2') : ?>
       <section class="d-grid gap-2 mt-4 mb-3">
-        <button type="submit" name="confirm" class="btn btn-orange" onclick="actionButton('finish')" data-text="Anda yakin pesanan telah selesai ?" data-redurl='<?= base_url('owner/order/index/history'); ?>'>Pesanan Selesai</button>
+        <button type="submit" id="btn-finish" name="confirm" class="btn btn-orange" onclick="actionButton('finish')" data-text="Anda yakin pesanan telah selesai ?" data-redurl='<?= base_url('owner/order/index/history'); ?>'>Pesanan Selesai</button>
       </section>
     <?php elseif ($data['status'] == '1' || $data['status'] == '4' || $data['status'] == '5') : ?>
       <section class="d-grid gap-2 mt-5 mb-3">
