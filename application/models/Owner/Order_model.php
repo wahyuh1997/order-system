@@ -12,9 +12,17 @@ class Order_model extends MY_Model
   // Order Active
   function get_final_order()
   {
-    $this->db->select("*, LPAD(id, 4, '0') as order_number");
+    $this->db->join('user', 'user.id = order.user_customer', 'LEFT');
+    $this->db->select("
+    order.id as id,
+    LPAD(order.id, 4, '0') as order_number,
+    order.status as status,
+    user.id as user_id,
+    user.nama as nama,
+    ");
+
     $this->db->where('status', 2);
-    $this->db->order_by('id', 'DESC');
+    $this->db->order_by('order.id', 'DESC');
     $menu = $this->db->get('order')->result_array();
 
     return $this->return_success('', $menu);
@@ -22,9 +30,16 @@ class Order_model extends MY_Model
 
   function get_accept_order()
   {
-    $this->db->select("*, LPAD(id, 4, '0') as order_number");
+    $this->db->join('user', 'user.id = order.user_customer', 'LEFT');
+    $this->db->select("
+    order.id as id,
+    LPAD(order.id, 4, '0') as order_number,
+    order.status as status,
+    user.id as user_id,
+    user.nama as nama,
+    ");
     $this->db->where('status', 3);
-    $this->db->order_by('id', 'DESC');
+    $this->db->order_by('order.id', 'DESC');
     $menu = $this->db->get('order')->result_array();
 
     return $this->return_success('', $menu);
@@ -33,9 +48,16 @@ class Order_model extends MY_Model
   // History Order
   function history_order()
   {
-    $this->db->select("*, LPAD(id, 4, '0') as order_number");
+    $this->db->join('user', 'user.id = order.user_customer', 'LEFT');
+    $this->db->select("
+    order.id as id,
+    LPAD(order.id, 4, '0') as order_number,
+    order.status as status,
+    user.id as user_id,
+    user.nama as nama,
+    ");
     $this->db->where_in('status', [1, 4, 5]);
-    $this->db->order_by('id', 'DESC');
+    $this->db->order_by('order.id', 'DESC');
     $menu = $this->db->get('order')->result_array();
 
     return $this->return_success('', $menu);

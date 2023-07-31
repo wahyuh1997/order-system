@@ -40,7 +40,7 @@
                   </div>
                   <div class="col-9">
                     <div class="card-body">
-                      <h6 class="card-title mb-0">Pesanan <?= $new['order_number']; ?></h6>
+                      <h6 class="card-title mb-0">Pesanan <?= $new['order_number']; ?> - <?= $new['nama']; ?></h6>
                       <!-- <small class="card-text">Proses</small> -->
                     </div>
                   </div>
@@ -68,7 +68,7 @@
                   </div>
                   <div class="col-9">
                     <div class="card-body">
-                      <h6 class="card-title mb-0">Pesanan <?= $process['order_number']; ?></h6>
+                      <h6 class="card-title mb-0">Pesanan <?= $process['order_number']; ?> - <?= $process['nama']; ?></h6>
                       <!-- <small class="card-text">Proses</small> -->
                     </div>
                   </div>
@@ -97,7 +97,7 @@
                       </div>
                       <div class="col-9">
                         <div class="card-body <?= $history['status'] == 5 || $history['status'] == 4 ? 'text-danger' : null; ?>">
-                          <h6 class="card-title mb-0">Pesanan <?= $history['order_number']; ?></h6>
+                          <h6 class="card-title mb-0">Pesanan <?= $history['order_number']; ?> - <?= $history['nama']; ?></h6>
                           <small class="card-text">
                             <?= $history['status'] == 1 ? 'Selesai' : 'Dibatalkan'; ?>
                           </small>

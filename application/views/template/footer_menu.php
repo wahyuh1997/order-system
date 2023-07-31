@@ -16,7 +16,7 @@
     <li class="nav-item">
       <a class="nav-link d-flex flex-column align-items-center icon-menu <?= $this->uri->segment(1) == 'profile' ? 'active' : null; ?>" href="<?= base_url('profile'); ?>">
         <i class="fa-solid fa-user fa-2xl"></i>
-        <span class="mt-3">Login</span>
+        <span class="mt-3"><?= isset($_SESSION['os_user']) ? 'Profil' : 'Login'; ?></span>
       </a>
     </li>
   </ul>
