@@ -63,6 +63,12 @@ class Menu_model extends MY_Model
     {
         $menu = $this->db->get_where('menu', ['id' => $data['id']])->row_array();
 
+        if (!($menu['product_name'] == $data['product_name'])) {
+            if ($this->db->get_where('menu', ['product_name' => $data['product_name']])->row_array()) {
+                return $this->return_failed('Nama produk sudah digunakan!', []);
+            }
+        }
+
         if (count($menu) < 1) {
             return $this->return_failed('Menu Tidak Ada!', []);
         }
@@ -128,6 +134,10 @@ class Menu_model extends MY_Model
     // ]
     function insert_menu($data)
     {
+        if ($this->db->get_where('menu', ['product_name' => $data['product_name']])->row_array()) {
+            return $this->return_failed('Nama produk sudah digunakan!', []);
+        }
+
         if (strlen($data['product_name']) < 1 || strlen($data['description']) < 1 || strlen($data['price']) < 1) {
             return $this->return_failed('Nama menu, deskripsi, dan harga silahkan diisi!', []);
         }
