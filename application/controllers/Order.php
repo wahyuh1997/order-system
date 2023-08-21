@@ -153,4 +153,9 @@ class Order extends MY_Controller
   {
     echo json_encode($this->order->self_canceled($id));
   }
+
+  public function pickup($id)
+  {
+    echo json_encode($this->order->pickup_order($id));
+  }
 }

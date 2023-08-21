@@ -137,7 +137,7 @@ class Order_model extends MY_Model
 
     if ($order['status'] == 2) {
 
-      $this->db->set('status', 1);
+      $this->db->set('status', 7);
       $this->db->where(['id' => $order['id']]);
       $this->db->update('order');
 

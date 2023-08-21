@@ -33,7 +33,7 @@
   <!-- Status Order -->
   <section class="mt-3">
     <h6 class="text-dark-orange">Status Pesanan</h6>
-    <?php if ($data['status'] < 4) : ?>
+    <?php if ($data['status'] < 4 || $data['status'] == 7) : ?>
       <div class="row">
         <div class="col-2">
           <i class="fa-solid fa-receipt fa-2x active"></i>
@@ -42,22 +42,22 @@
           <div style="border-top: 3px solid black; margin-top: 1rem;"></div>
         </div>
         <div class="col-2">
-          <i class="fa-solid fa-fire-burner fa-2x <?= $data['status'] == 1 || $data['status'] == 2 ? 'active' : null; ?>"></i>
+          <i class="fa-solid fa-fire-burner fa-2x <?= $data['status'] == 1 || $data['status'] > 1 ? 'active' : null; ?>"></i>
         </div>
         <div class="col-3">
           <div style="border-top: 3px solid black; margin-top: 1rem;"></div>
         </div>
         <div class="col-2">
-          <i class="fa-solid fa-circle-check fa-2x <?= $data['status'] == 1 ? 'active' : null; ?>"></i>
+          <i class="fa-solid fa-circle-check fa-2x <?= $data['status'] == 1 || $data['status'] == 7 ? 'active' : null; ?>"></i>
         </div>
       </div>
     <?php else : ?>
       <h5 class="text-danger mb-0">Pesanan Dibatalkan</h5>
     <?php endif; ?>
-    <small class="<?= $data['status'] < 4 ? 'text-dark-orange' : 'text-danger'; ?> mt-1">
+    <small class="<?= $data['status'] < 4 || $data['status'] == 7 ? 'text-dark-orange' : 'text-danger'; ?> mt-1">
       <?php switch ($data['status']) {
         case '1':
-          $status = 'Pesanan telah selesai! Silakan ambil pesanan anda!';
+          $status = 'Pesanan telah selesai!';
           break;
         case '2':
           $status = 'Restoran sedang memproses pesanan anda!';
@@ -67,6 +67,9 @@
           break;
         case '6':
           $status = 'Anda membatalkan pesanan';
+          break;
+        case '7':
+          $status = 'Pesanan telah selesai! Silakan ambil pesanan anda !';
           break;
         default:
           $status = 'Pesanan anda dibatalkan karena ' . $data['desc'];
@@ -83,7 +86,7 @@
     <h6 class="text-dark-orange">Pesanan</h6>
     <div class="card">
       <div class="card-body pt-2 pb-0 px-2">
-          <?php foreach ($data['order_detail'] as $item) : ?>
+        <?php foreach ($data['order_detail'] as $item) : ?>
           <div class="row g-0">
             <div class="col-3">
               <img src="<?= $item['image'] == null ? base_url('assets/img/no-image.png') : base_url('assets/img/product/') . $item['image']; ?>" class="img-fluid rounded-start img-thumbnail" style="width: 100%; height: 6rem;" alt="Cake 1">
@@ -103,11 +106,11 @@
             </div>
           </div>
           <hr class="my-2">
-          <?php
-            $total_price[] = $item['price_total'];
-          endforeach; ?>
-        </div>
+        <?php
+          $total_price[] = $item['price_total'];
+        endforeach; ?>
       </div>
+    </div>
   </section>
 
   <!-- Payment Info -->
@@ -150,8 +153,11 @@
 
     <!-- Order Button -->
     <section class="d-grid gap-2 mt-4">
+      <?php if ($data['status'] == 7) : ?>
+        <button type="button" id="btn-pickup" class="btn btn-orange" href="<?= base_url('order/pickup/' . $this->uri->segment(3)); ?>" data-redurl='<?= base_url('order'); ?>'>Pesanan Diambil</button>
+      <?php endif; ?>
       <button type="submit" class="btn btn-orange btn-submit d-none">Simpan</button>
-      <a href="https://api.whatsapp.com/send?phone=<?= $wa_phone; ?>" target="_blank" class="btn btn-orange btn-wa">Hubungi Penjual via WhatsApp</a>
+      <a href="https://api.whatsapp.com/send?phone=<?= $wa_phone; ?>" target="_blank" class="btn <?= $data['status'] == 7 ? 'btn-secondary' : 'btn-orange'; ?> btn-wa">Hubungi Penjual via WhatsApp</a>
     </section>
   </form>
 </div>

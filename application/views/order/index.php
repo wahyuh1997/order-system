@@ -60,6 +60,9 @@
             case '1':
               $status_history = 'Selesai';
               break;
+            case '7':
+              $status_history = 'Pesanan siap diambil';
+              break;
             default:
               $status_history = 'Dibatalkan';
               break;
@@ -72,8 +75,8 @@
                 </div>
                 <div class="col-9">
                   <div class="card-body">
-                    <h6 class="card-title mb-0 <?= $history['status'] == 1 ? null : 'text-danger'; ?>">Pesanan <?= $history['order_number']; ?></h6>
-                    <small class="card-text <?= $history['status'] == 1 ? null : 'text-danger'; ?>"><?= $status_history; ?></small>
+                    <h6 class="card-title mb-0 <?= $history['status'] == 1 || $history['status'] == 7 ? null : 'text-danger'; ?>">Pesanan <?= $history['order_number']; ?></h6>
+                    <small class="card-text <?= $history['status'] == 1 || $history['status'] == 7 ? null : 'text-danger'; ?>"><?= $status_history; ?></small>
                   </div>
                 </div>
               </div>

@@ -66,4 +66,51 @@
       }
     });
   });
+
+
+  $(document).on('click', '#btn-pickup', function(e) {
+    e.preventDefault();
+    // init
+    var url = $(this).attr('href');
+    var redUrl = $(this).data('redurl');
+    // confirmation
+    Swal.fire({
+      icon: 'question',
+      title: 'Apakah anda yakin',
+      showCancelButton: true,
+      confirmButtonText: `Ya`,
+      cancelButtonText: 'Batal',
+      reverseButtons: true,
+      text: 'telah mengambil pesanan ini ?',
+    }).then((result) => {
+      // check if confirmed
+      if (result.isConfirmed) {
+        // do delete
+        $.get(url, function(response) {
+          // parsing the json
+          let textParse = JSON.parse(response);
+
+          // check status of response
+          if (textParse.status == true) {
+            Swal.fire({
+              icon: 'success',
+              title: "Berhasil",
+              confirmButtonText: `OK`,
+              text: 'Pesanan telah diambil !',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = redUrl;
+              }
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: "{{Failed}}",
+              text: textParse.message,
+            })
+          }
+        });
+      }
+    });
+  });
 </script>
