@@ -25,6 +25,10 @@
               $status_process = 'Proses';
               $link = base_url('order/confirm/' . $process['id']);
               break;
+            case '7':
+              $status_process = 'Pesanan siap diambil';
+              $link = base_url('order/confirm/' . $process['id']);
+              break;
             default:
               $status_process = 'Menunggu Konfirmasi Restoran';
               $link = base_url('order/confirm/' . $process['id']);
@@ -59,9 +63,6 @@
           switch ($history['status']) {
             case '1':
               $status_history = 'Selesai';
-              break;
-            case '7':
-              $status_history = 'Pesanan siap diambil';
               break;
             default:
               $status_history = 'Dibatalkan';

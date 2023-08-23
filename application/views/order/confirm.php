@@ -42,7 +42,7 @@
           <div style="border-top: 3px solid black; margin-top: 1rem;"></div>
         </div>
         <div class="col-2">
-          <i class="fa-solid fa-fire-burner fa-2x <?= $data['status'] == 1 || $data['status'] > 1 ? 'active' : null; ?>"></i>
+          <i class="fa-solid fa-fire-burner fa-2x <?= $data['status'] != 3 ? 'active' : null; ?>"></i>
         </div>
         <div class="col-3">
           <div style="border-top: 3px solid black; margin-top: 1rem;"></div>
